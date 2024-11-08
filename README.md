@@ -1,1 +1,1 @@
-Just a bunch of geometry here)
+@egorchess пишите жалобы, предложения и пожелания)
