@@ -64,6 +64,11 @@
 	{Содержание}%
 }
 
+\newsavebox{\boxedalignbox}
+\newenvironment{boxedalign*}
+  {\begin{equation*}\begin{lrbox}{\boxedalignbox}$\begin{aligned}}
+  {\end{aligned}$\end{lrbox}\fbox{\usebox{\boxedalignbox}}\end{equation*}}
+
 \usepackage{titlesec}
 \titleformat{\section}{\LARGE \bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\Large\bfseries}{\thesubsection}{1em}{}
@@ -551,11 +556,11 @@
 	\begin{formulas}[\bfseries уравнения прямой\mdseries]
 
 
-		Пусть $l$ - прямая на плоскости: $l = \{X: \overrightarrow{OX} = \overrightarrow{OM} + t\bar{v}\}$, где $M$ - точка прямой, $\bar{v}$ - её направляющий вектор. Если $M=\begin{pmatrix}x_{0}\\y_{0}\end{pmatrix},\bar{v}=\begin{pmatrix}a\\b\end{pmatrix}$, то из совпадения координат совпадающих векторов $\overrightarrow{OX}$ и $(\overrightarrow{OM}+t\bar{v})$ верно следующее: \framebox[1.1\width]{$X \in l: \begin{cases}x = x_{0} + at \\ y = y_{0} + bt\end{cases}$} (\bfseries параметрические уравнения прямой\mdseries)\\
-		Выразим $t$ из первого уравнения и подставим во второе - получим: \framebox[1.1\width]{$\frac{x-x_{0}}{a} = \frac{y-y_{0}}{b}$} (\bfseries каноническое уравнение прямой\mdseries).
+		Пусть $l$ - прямая на плоскости: $l = \{X: \overrightarrow{OX} = \overrightarrow{OM} + t\bar{v}\}$, где $M$ - точка прямой, $\bar{v}$ - её направляющий вектор. Если $M=\begin{pmatrix}x_{0}\\y_{0}\end{pmatrix},\bar{v}=\begin{pmatrix}a\\b\end{pmatrix}$, то из совпадения координат совпадающих векторов $\overrightarrow{OX}$ и $(\overrightarrow{OM}+t\bar{v})$ верно следующее: (\bfseries параметрические уравнения прямой\mdseries) \begin{boxedalign*}X \in l: \begin{cases}x = x_{0} + at \\ y = y_{0} + bt\end{cases}\end{boxedalign*}\\
+		Выразим $t$ из первого уравнения и подставим во второе уравнение - получим \bfseries каноническое уравнение прямой\mdseries : \begin{boxedalign*}\frac{x-x_{0}}{a} = \frac{y-y_{0}}{b}\end{boxedalign*}
 		(Заметим, что данное выражение не определено при нулевых $a$ или $b$, но очевидно, что они не равны нулю одновременно, а запись, где одна из дробей имеет знаменатель 0, иногда используется, поэтому здесь и далее случай равенства нулю знаменателя может не рассматриваться как отдельный и будет означать, что числитель должен равняться 0)\\
-		Если известно, что прямой принадлежат $M = \begin{pmatrix}x_{0}\\y_{0}\end{pmatrix}, N = \begin{pmatrix}x_{1}\\y_{1}\end{pmatrix}$, то $\overrightarrow{MN} = \begin{pmatrix}x_{1} - x_{0}\\y_{1} - y_{0}\end{pmatrix}$ - направляющий вектор, т.е. каноническое уравнение прямых принимает вид \framebox[1.1\width]{$\frac{x-x_{0}}{x_{1}-x_{0}} = \frac{y-y_{0}}{y_{1}-y_{0}}$} (\bfseries уравнение прямой по двум точкам\mdseries).\\
-		Домножим каноническое уравнение прямой на знаменатели: $\frac{x-x_{0}}{a} = \frac{y-y_{0}}{b} \Rightarrow bx-bx_{0}=ay-ay_{0} \Rightarrow bx - ay + (ay_{0}-bx_{0}) = 0$. Такое уравнение обычно называют \bfseries общим уравнением прямой\mdseries \ и записывают как \framebox[1.1\width]{$Ax + By + C = 0$}
+		Если известно, что прямой принадлежат $M = \begin{pmatrix}x_{0}\\y_{0}\end{pmatrix}, N = \begin{pmatrix}x_{1}\\y_{1}\end{pmatrix}$, то $\overrightarrow{MN} = \begin{pmatrix}x_{1} - x_{0}\\y_{1} - y_{0}\end{pmatrix}$ - направляющий вектор, т.е. каноническое уравнение имеет вид \begin{boxedalign*}\frac{x-x_{0}}{x_{1}-x_{0}} = \frac{y-y_{0}}{y_{1}-y_{0}}\end{boxedalign*}(\bfseries уравнение прямой по двум точкам\mdseries).\\
+		Домножим каноническое уравнение прямой на знаменатели: $\frac{x-x_{0}}{a} = \frac{y-y_{0}}{b} \Rightarrow bx-bx_{0}=ay-ay_{0} \Rightarrow bx - ay + (ay_{0}-bx_{0}) = 0$. Такое уравнение обычно называют \bfseries общим уравнением прямой\mdseries \ и записывают как \begin{boxedalign*}Ax + By + C = 0\end{boxedalign*}
 	\end{formulas}
 	\begin{remark}
 		Для прямых в пространстве подобным образом выводятся параметрические и каноническое уравнения. 
@@ -583,8 +588,10 @@
 	\end{remark}
 	\begin{consequense}
 		Прямые $l_{1}: \begin{cases}x = x_{1} + a_{1}t \\ y = y_{1} + b_{1}t\end{cases}; l_{2}: \begin{cases}x = x_{2} + a_{2}t \\ y = y_{2} + b_{2}t\end{cases}$ пересекаются $\Leftrightarrow \frac{a_{1}}{a_{2}} \neq \frac{b_{1}}{b_{2}}$.
-		Условие совпадения прямых также можно записать через параметрические уравнения (вектор $(x_{2} - x_{1} \ y_{2} - y_{1}) = \lambda(a, b)$). \\
-		Из этого также следует, что через две различные точки проходит ровно одна прямая (все такие прямые совпадают).
+		Условие совпадения прямых также можно записать через параметрические уравнения (вектор $(x_{2} - x_{1} \ y_{2} - y_{1}) = \lambda(a, b)$).
+	\end{consequense}
+	\begin{consequense}
+		Через две различные точки проходит ровно одна прямая (все такие прямые совпадают).
 	\end{consequense}
 	\subsection{Пучки прямых}
 	\begin{definition}
@@ -610,7 +617,7 @@
 		Пусть $l$ - прямая, $X_{1}(x_{1}, y_{1}), X_{2}(x_{2}, y_{2}) \in l$ и $X_{1} \neq X_{2}$. Отрезком с концами $X_{1}, X_{2}$ на плоскости называется множество всех точек, лежащих между $X_{1}$ и $X_{2}$ (на прямой $l$). Обозначается $[X_{1}, X_{2}]$. 
 	\end{definition}
 	\begin{formula}[Уравнение отрезка]
-		Пусть $X \in [X_{1}, X_{2}]$. Тогда знаем, что $\begin{cases}x = x_{1} + t(x_{2} - x_{1}) \\ y = y_{1} + t(y_{2} - y_{1})\end{cases} (X \in l) \Rightarrow \begin{pmatrix} x-x_{1} \\ y-y_{1} \end{pmatrix} = t\begin{pmatrix} x_{2}-x_{1} \\ y_{2}-y_{1} \end{pmatrix} \Rightarrow \\ t\overrightarrow{X_{1}X_{2}} = \overrightarrow{X_{1}X} \Rightarrow \overrightarrow{XX_{2}} = (1-t)\overrightarrow{X_{1}X_{2}}$. Отсюда видно, что $|\overrightarrow{X_{1}X}|$ и $|\overrightarrow{XX_{2}}| < |\overrightarrow{X_{1}X_{2}}| \Leftrightarrow t \in [0, 1]$. Отсюда \framebox[1.1\width]{$X \in [X_{1}, X_{2}] \Leftrightarrow \begin{cases}x = x_{1} + t(x_{2} - x_{1}) \\ y = y_{1} + t(y_{2} - y_{1})\\t\in [0, 1]\end{cases}$}
+		Пусть $X \in [X_{1}, X_{2}]$. Тогда знаем, что $\begin{cases}x = x_{1} + t(x_{2} - x_{1}) \\ y = y_{1} + t(y_{2} - y_{1})\end{cases} (X \in l) \Rightarrow \begin{pmatrix} x-x_{1} \\ y-y_{1} \end{pmatrix} = t\begin{pmatrix} x_{2}-x_{1} \\ y_{2}-y_{1} \end{pmatrix} \Rightarrow \\ t\overrightarrow{X_{1}X_{2}} = \overrightarrow{X_{1}X} \Rightarrow \overrightarrow{XX_{2}} = (1-t)\overrightarrow{X_{1}X_{2}}$. Отсюда видно, что $|\overrightarrow{X_{1}X}|$ и $|\overrightarrow{XX_{2}}| < |\overrightarrow{X_{1}X_{2}}| \Leftrightarrow t \in [0, 1]$. Отсюда \begin{boxedalign*}X \in [X_{1}, X_{2}] \Leftrightarrow \begin{cases}x = x_{1} + t(x_{2} - x_{1}) \\ y = y_{1} + t(y_{2} - y_{1})\\t\in [0, 1]\end{cases}\end{boxedalign*}
 	\end{formula}
 	\begin{subtheorem}
 		На плоскости выполяются вторая и третья аксиомы порядка. 
@@ -665,7 +672,7 @@
 		Перпендикуляром, опущенным из данной точки на данную прямую, называется прямая, проходящая через точку и перпендикулярная прямой, либо отрезок этой прямой с концами в данной точке и точке пересечения прямой с данной. 
 	\end{definition}
 	\begin{formula}[Угол между прямыми в прямоугольной с.к.]
-		Пусть $l_{1}: A_{1}x + B_{1}y + C_{1} = 0, l_{2}: A_{2}x + B_{2}y + C_{2} = 0$ - прямые в прямоугольной системе координат. Тогда их направляющие векторы равны $\begin{pmatrix} -B_{1} \\ A_{1} \end{pmatrix} = \bar{v}_{1}, \begin{pmatrix} -B_{2} \\ A_{2} \end{pmatrix} = \bar{v}_{2}$. Отсюда (из выражения скалярного произведения): $\ \ \cos\angle(l_{1}, l_{2}) = |\cos\angle(\bar{v}_{1}, \bar{v}_{2})| \\=$ \framebox[1.1\width]{$\frac{|A_{1}A_{2} + B_{1}B_{2}|}{\sqrt{A_{1}^2 + B_{1}^2} + \sqrt{A_{2}^2 + B_{2}^2}}$} (модуль в косинусе, а соответственно и в числителе формулы, позволяет сразу взять меньший угол).
+		Пусть $l_{1}: A_{1}x + B_{1}y + C_{1} = 0, l_{2}: A_{2}x + B_{2}y + C_{2} = 0$ - прямые в прямоугольной системе координат. Тогда их направляющие векторы равны $\begin{pmatrix} -B_{1} \\ A_{1} \end{pmatrix} = \bar{v}_{1}, \begin{pmatrix} -B_{2} \\ A_{2} \end{pmatrix} = \bar{v}_{2}$. Отсюда (выражение скалярного произведения): $\ \cos\angle(l_{1}, l_{2}) = |\cos\angle(\bar{v}_{1}, \bar{v}_{2})| \Rightarrow$ \begin{boxedalign*} \cos\angle(l_{1}, l_{2}) = \frac{|A_{1}A_{2} + B_{1}B_{2}|}{\sqrt{A_{1}^2 + B_{1}^2} + \sqrt{A_{2}^2 + B_{2}^2}} \end{boxedalign*}(модуль в косинусе, а соответственно и в числителе формулы, позволяет сразу взять меньший угол).
 	\end{formula}
 	\begin{consequense}
 		Прямые $l_{1}: A_{1}x + B_{1}y + C_{1} = 0$ и $l_{2}: A_{2}x + B_{2}y + C_{2} = 0$ перпендикулярны $\Leftrightarrow A_{1}A_{2} + B_{1}B_{2} = 0$.
@@ -694,7 +701,190 @@
 	\end{remark}
 	\begin{formula}[Расстояние от точки до прямой в прямоугольной с.к.]
 		Пусть $X_{0} = (x_{0}, y_{0}), l: Ax + By + C = 0$. Посчитаем $d(X_{0}, l)$. Проведём через $X_{0}$ перпендикуляр $l'$ к прямой $l$. Направляющий вектор $l'$ - $\begin{pmatrix} A \\ B \end{pmatrix}$, то есть его параметрические уравнения - $\begin{cases} x = x_{0} + At \\ y = y_{0} + Bt \end{cases}$. Найдём $t_{1}$, удовлетворяющее точке пересечения: имеем $A(x_{0} + At_{1}) + B(y_{0} + Bt_{1}) + C = 0 \Rightarrow t_{1} = -\frac{Ax_{0} + By_{0} + C}{A^2+B^2}$.\\
-		Отсюда точка пересечения $X_{1}$ имеет координаты $(x_{0} + At_{1}, y_{0} + Bt_{1})$. Тогда $\overrightarrow{X_{0}X_{1}} = \begin{pmatrix} At_{1} \\ Bt_{1} \end{pmatrix} \Rightarrow |\overrightarrow{X_{0}X_{1}}|^2 = A^2t_{1}^2 + B^2t_{1}^2 = (A^2 + B^2)t_{1}^2 = \frac{(Ax_{0} + By_{0} + C)^2}{A^2 + B^2}$, а значит \framebox[1.1\width]{$d(X, l) = \frac{|Ax_{0} + By_{0} + C|}{\sqrt{A^2 + B^2}}$}
+		Отсюда точка пересечения $X_{1}$ имеет координаты $(x_{0} + At_{1}, y_{0} + Bt_{1})$. Тогда $\overrightarrow{X_{0}X_{1}} = \begin{pmatrix} At_{1} \\ Bt_{1} \end{pmatrix} \Rightarrow |\overrightarrow{X_{0}X_{1}}|^2 = A^2t_{1}^2 + B^2t_{1}^2 = (A^2 + B^2)t_{1}^2 = \frac{(Ax_{0} + By_{0} + C)^2}{A^2 + B^2}$, а значит \begin{boxedalign*} d(X, l) = \frac{|Ax_{0} + By_{0} + C|}{\sqrt{A^2 + B^2}} \end{boxedalign*}
 	\end{formula}
-	\bfseries Мораль в том, что дальше очев... (по Гейне, конечно) \mdseries
+	\section{Преобразования координат}
+	\subsection{Преобразования координат векторов. Матрица перехода}
+	\begin{formula}[Матрица перехода]
+		Пусть $E = (\bar{e}_{1},...,\bar{e}_{n})$ и $E' = (\bar{e}_{1}',...,\bar{e}_{n}')$ - два базиса в одном и том же евклидовом пространстве $V$. Будем называть $E$ старым базисом, а $E'$ - новым. Получим формулу для координат в старом базисе вектора $\bar{x}\in V$, заданного в новом базисе координатами $(x_{1}',...,x_{n}')$.\\
+		Итак, пусть в старом базисе $\bar{x}$ имеет координаты $(x_{1},...,x_{n})$. Установим связь между базисами, выразив векторы нового базиса через старый: пусть \\ $\bar{e}_{i}' = c_{1i}\bar{e}_{1} + ... + c_{ni}\bar{e}_{n}$, т.е. $\bar{e}_{i}' = \begin{pmatrix} c_{1i} \\ \vdots \\ c_{ni} \end{pmatrix}$. Подставляя эти выражения, получим:\\ $\bar{x} = x_{1}'\bar{e}_{1}' + ... + x_{n}'\bar{e}_{n}' = x_{1}'(c_{11}\bar{e}_{1} +...+ c_{n1}\bar{e}_{n}) +...+ x_{n}'(c_{1n}\bar{e}_{1} +...+ c_{nn}\bar{e}_{n}) = \\=(c_{11}x_{1}'+...+c_{1n}x_{n}')\bar{e}_{1} +...+(c_{n1}x_{1}'+...+c_{nn}x_{n}')\bar{e}_{n} \Rightarrow \ $(из равенства координат)  \begin{boxedalign*}\begin{pmatrix} x_{1} \\ \vdots \\ x_{n} \end{pmatrix} = \begin{pmatrix} c_{11} \ ... \ c_{1n} \\ \vdots \ \ \ \ \ \ \ \ \vdots \\ c_{n1} \ ... \ c_{nn} \end{pmatrix} \begin{pmatrix} x_{1}' \\ \vdots \\ x_{n}' \end{pmatrix} \Leftrightarrow \begin{pmatrix} x_{1} \\ \vdots \\ x_{n} \end{pmatrix} = C\begin{pmatrix} x_{1}' \\ \vdots \\ x_{n}' \end{pmatrix}\end{boxedalign*} 
+	\end{formula}
+	\begin{definition}
+		Такая матрица $C$ называется матрицей перехода от базиса $E$ к базису $E'$.
+	\end{definition}
+	\begin{remark}
+		Столбцы матрицы $C$ являются координатами базисных векторов $E'$ в базисе $E \Rightarrow$ столбцы $C$ линейно независимы $\Rightarrow C$ невырожденная (из курса алгебры).
+	\end{remark}
+	\begin{formula}
+		Рассмотрим также скалярное произведение векторов в случае, когда базис $E$ ортонормированный. Если $\bar{x} = \begin{pmatrix} x_{1} \\ \vdots \\ x_{n}  \end{pmatrix}, \bar{y} = \begin{pmatrix} y_{1} \\ \vdots \\ y_{n}  \end{pmatrix}$ (в базисе $E$), имеем: $(\bar{x}, \bar{y}) = \begin{pmatrix} x_{1}&\dots&x_{n} \end{pmatrix} \begin{pmatrix} y_{1} \\ \vdots \\ y_{n} \end{pmatrix} = \begin{pmatrix} x_{1}'&\dots&x_{n}' \end{pmatrix}C^{T}C\begin{pmatrix} y_{1}' \\ \vdots \\ y_{n}' \end{pmatrix}$ (так как $\begin{pmatrix} x_{1}&\dots&x_{n}\end{pmatrix} = \begin{pmatrix} C \begin{pmatrix} x_{1}' \\ \vdots \\x_{n}' \end{pmatrix}\end{pmatrix}^{T}$). Нетрудно видеть, что произведение матриц $C^{T}C$ имеет вид $G = \begin{pmatrix} (\bar{e}_{1}', \bar{e}_{1}')&\dots&(\bar{e}_{1}', \bar{e}_{n}') \\ \vdots&\null&\vdots \\ (\bar{e}_{n}', \bar{e}_{1}') & \dots & (\bar{e}_{n}', \bar{e}_{n}') \end{pmatrix}$ (строки $C^{T}$ и столбцы $C$ - координаты векторов базиса $E'$ в базисе $E$) \\
+		Такая матрица называется матрицей Грама (матрицей скалярных произведений) для базиса $E'$. Так как матрица $G$ не зависит от базиса $E$, получаем формулу для скалярного произведения в произвольном базисе: \begin{boxedalign*}(\bar{x}, \bar{y}) = \begin{pmatrix} x_{1}' & \dots & x_{n}' \end{pmatrix}G\begin{pmatrix} y_{1}' \\ \vdots \\ y_{n}' \end{pmatrix} \end{boxedalign*}
+	\end{formula}
+	\begin{consequense}[1]
+		Если $C$ и $C_{1}$ - матрицы перехода от базиса $E$ к $E'$ и от $E'$ к $E''$ соответственно, то матрица перехода от базиса $E$ к $E''$ равна $CC_{1}$
+	\end{consequense}
+	\begin{consequense}[2]
+		Если $C$ - матрица перехода от базиса $E$ к $E'$, то матрица перехода от базиса $E'$ к $E$ равна $C^{-1}$.
+	\end{consequense}
+	\begin{remark}
+		Пусть $\bar{e}_{1},...,\bar{e}_{n}$ - базис векторного пространства $V$. Тогда векторы $\bar{x}_{1},...,\bar{x}_{n} \in V$ линейно независимы $\Leftrightarrow$ столбцы их координат линейно независимы. Это очевидно следует из представления линейной комбинации $\lambda_{1}\bar{x}_{1} + ... + \lambda_{n}\bar{x}_{n} = 0$ через координаты. 
+	\end{remark}
+	\begin{theorem}
+		Для произвольного данного базиса матрица $C$ является матрицей перехода к некоторому другому базису $\Leftrightarrow \det C \neq 0$. 
+	\end{theorem}
+	\begin{proof}
+		Следует из утверждения из курса алгебры о том, что матрица невырожденна $\Leftrightarrow$ её столбцы линейно независимы ($\Leftrightarrow$ векторы-столбцы образуют базис). 
+	\end{proof}
+	\subsection{Преобразования координат точек}
+	\begin{formula}[Координаты точки при перемене с.к.]
+		Пусть заданы два репера $O\bar{e}_{1}...\bar{e}_{n}$ и $O'\bar{e}_{1}'...\bar{e}_{n}'$. Для этого необходимо задать новый репер через старый: пусть $C$ - матрица перехода от $\bar{e}_{1},...,\bar{e}_{n}$ к $\bar{e}_{1}'...\bar{e}_{n}'$, а вектор $\overrightarrow{OO'} = \begin{pmatrix} x_{01} \\ \vdots \\ x_{0n} \end{pmatrix}$.
+		Пусть $X$ - произвольная точка с координатами $(x_{1},...,x_{n})$ в старой системе координат и $(x_{1}',...,x_{n}')$ в новой. Тогда $\overrightarrow{OX} = \begin{pmatrix} x_{1} \\ \vdots \\ x_{n} \end{pmatrix}$. Также $\overrightarrow{O'X} = \begin{pmatrix} x_{1}' \\ \vdots \\ x_{n}' \end{pmatrix}$ в новой с.к. $\Rightarrow C\begin{pmatrix} x_{1}' \\ \vdots \\ x_{n}' \end{pmatrix}$ в старой. Осталось заметить, что $\overrightarrow{OX} = \overrightarrow{OO'} + \overrightarrow{O'X}$, а отсюда (через старую с.к.)
+		\begin{boxedalign*}\begin{pmatrix} x_{1} \\ \vdots \\ x_{n} \end{pmatrix} = \begin{pmatrix} x_{01} \\ \vdots \\ x_{0n} \end{pmatrix} + C \begin{pmatrix} x_{1}' \\ \vdots \\ x_{n}' \end{pmatrix} \end{boxedalign*}
+		Выразим новые координаты, умножив слева на $C^{-1}$:  
+		\begin{boxedalign*}\begin{pmatrix} x_{1}' \\ \vdots \\ x_{n}' \end{pmatrix} = - C^{-1}\begin{pmatrix} x_{01} \\ \vdots \\ x_{0n} \end{pmatrix} + C^{-1}\begin{pmatrix} x_{1} \\ \vdots \\ x_{n} \end{pmatrix} \end{boxedalign*}
+		(отметим также, что $- C^{-1}\begin{pmatrix} x_{01} \\ \vdots \\ x_{0n} \end{pmatrix}$ - новые координаты вектора $O'O$)
+	\end{formula}
+	\subsection{Ортогональные матрицы}
+	\begin{definition}
+		Матрица перехода от одного ортонормированного базиса к другому называется ортогональной.
+	\end{definition}
+	\begin{theorem}
+		Для $C = \begin{pmatrix} c_{11}&\dots&c_{1n} \\ \vdots&\null&\vdots \\ c_{n1}&\dots&c_{nn} \end{pmatrix}$ следующие утверждения равносильны:
+		\begin{enumerate}
+			\item $C$ - ортогональная;
+			\item $\sum \limits_{k=1}^{n} c_{ki}c_{kj} = \delta_{ij}$ ("скалярное произведение" столбцов равно $\delta_{ij}$);
+			\item $\sum \limits_{k=1}^{n} c_{ik}c_{jk} = \delta_{ij}$ ("скалярное произведение" строк равно $\delta_{ij}$);
+			\item $C C^T = E$;
+			\item $C^T C = E$;
+			\item $C^T = C^{-1}$;
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}(в конспекте указан "прямой подсчёт")\\
+		Для начала заметим равносильность утверждений $\circled{4}, \circled{5}, \circled{6}$: $\circled{4} \Leftrightarrow \circled{5}$ (получаются друг из друга транспонированием обоих частей равенства), а $\circled{6}$ равносильно им по определению обратной матрицы.\\
+		$\circled{1} \Rightarrow \circled{2}$: Столбцы матрицы C - координаты векторов ортонормированного базиса $E$ в другом ортонормированном базисе $E'$. Рассмотрим скалярное произведение $(\bar{e}_{i}', \bar{e}_{j}')$: с одной стороны оно равно $\sum \limits_{k=1}^{n} c_{ki}c_{kj}$ (так как базис $E$ ортонормирован, можем применять формулу с матрицей Грама, причём $G = E$ из ортонормированности $E_{1}$), а с другой стороны - $\delta_{ij}$ (из ортонормированности $E_{1}$).\\
+		$\circled{1} \Leftarrow \circled{2}$: Из $\circled{2}$ знаем, что векторы с координатами в столбцах попарно ортогональны и имеют длину 1 в базисе, в котором записаны эти координаты. Значит, применив такое преобразование к векторам ортонормированного базиса, получим также попарно ортогональные векторы длины 1, т.е. $C$ - ортогональная.\\
+		$\circled{2} \Leftrightarrow \circled{5}$: Оба условия равносильны тому, что элемент $C^T C$ на позиции $ij$ равен $\delta_{ij}$.\\
+		Аналогично $\circled{3} \Leftrightarrow \circled{4}$.
+
+		Итого $\circled{1} \Leftrightarrow \circled{2} \Leftrightarrow \circled{5} \Leftrightarrow \circled{6} \Leftrightarrow \circled{4} \Leftrightarrow \circled{3}$.
+	\end{proof}
+	\begin{consequense}
+		Для ортогональной $C: |C^T| = |C|, \ |C^T C| = |E| = 1 \Rightarrow |C| = \pm 1$
+	\end{consequense}
+	\begin{consequense}(Из определения ортогональной матрицы)\\
+		Произведение ортогональных матриц - ортогональная матрица.\\
+		Матрица, обратная ортогональной, ортогональна.
+	\end{consequense}
+	\begin{formula}(Двумерный случай ортогональной матрицы)\\
+		$C = \begin{pmatrix} a&b\\c&d \end{pmatrix}$ ортогональна $\Rightarrow a^2 + c^2 = 1 \Rightarrow \exists \phi: a = \cos\phi, c = \sin\phi$.\\
+		Из теоремы $a^2 + b^2 = 1, \ c^2 + d^2 = 1 \Rightarrow b = \pm\sin\phi, \ d = \pm\cos\phi$.\\
+		Из ортогональности столбцов $ab + cd = 0$, поэтому остаются следующие случаи: \begin{boxedalign*}C = \begin{pmatrix} \cos\phi&-\sin\phi\\\sin\phi&\cos\phi\end{pmatrix}; \ \ C = \begin{pmatrix} \cos\phi&\sin\phi\\\sin\phi&\-cos\phi\end{pmatrix}\end{boxedalign*}
+		т.е. для любой ортогональной $C$ найдётся $\phi$ такой, что $C$ имеет один из видов выше. Несложно также убедиться, что любая матрица такого вида ортогональна: первая производит поворот на угол $\phi$, а вторая - поворот с отражением.
+	\end{formula}
+	\subsection{Ориентация}
+	\begin{definition}
+		Два базиса в конечномерном векторном пространстве называются одинаково ориентированными (одноимёнными), если матрица перехода от одного базиса к другому имеет положительный определитель. В противном случае базисы называются противоположно ориентированными (разноимёнными).
+	\end{definition}
+	\begin{theorem}
+		Отношение одноимённости является отношением эквивалентности на множестве базисов.
+	\end{theorem}
+	\begin{proof}
+		По определению отношения эквивалентности:
+		\begin{itemize}
+			\item рефлексивность: матрица перехода от базиса в себя равна $E$, $|E| = 1$;
+			\item симметричность: $C: E \rightarrow E' \Rightarrow C^{-1}: E' \rightarrow E$, причём $|C C^{-1}| = 1$, т.е. $|C|$ и $|C^{-1}|$ одного знака;
+			\item транзитивность: $C: E \rightarrow E', \ C': E' \rightarrow E'', C'': E \rightarrow E'' \Rightarrow C'' = CC'$, т.е. из одноимённостей $E$ с $E'$ и $E'$ с $E''$ следует одноимённость $E$ с $E''$.
+		\end{itemize}
+	\end{proof}
+	\begin{definition}
+		Ориентацией векторного пространства, а также любого аффинного пространства, с которым оно ассоциировано, называется выбор любого из двух классов эквивалентности по отношению одноимённости и объявления базисов в нём положительными (а остальных - отрицательными).\\ 
+		(Достаточно выбрать один базис и объявить его положительным)
+	\end{definition}
+	\begin{examples} Ориентации различных пространств:
+		\begin{enumerate}
+			\item \bfseries Прямая\mdseries :
+			Достаточно выбрать направляющий вектор (базис), и объявить его положительным. Матрица перехода на прямой - число (любые два вектора коллинеарны), и сонаправленность векторов (одноимённость базисов) зависит от знака этого числа.
+			\item  \bfseries Плоскость\mdseries :
+			Достаточно выбрать пару неколлинеарных векторов (базис), и объявить его положительным. Заметим, что пары $\bar{a}, \bar{b}$ и $\bar{b}, \bar{a}$ разноимённы ($C = \begin{pmatrix} 0&1\\1&0\end{pmatrix})$.
+
+			Посмотрим, когда пары $\bar{a}, \bar{b}$ и $\bar{a}, \bar{b}'$ одноимённые. Рассмотрим произвольную прямую $l$ с направляющим вектором $\bar{a}$ и любую точку $O \in l$. В репере $O\bar{a}\bar{b}$ уравнение $l$ имеет вид $y = 0$. Подставив в это уравнение координаты $\bar{b} = \begin{pmatrix} 0\\1\end{pmatrix}$, получим $1$.\\
+			Пусть $\bar{b}' = \lambda\bar{a} + \mu\bar{b} \Rightarrow$ матрица перехода между парами $C$ равна $\begin{pmatrix} 1&\lambda\\0&\mu\end{pmatrix}$. $|C| > 0 \Leftrightarrow \mu > 0 \Leftrightarrow$ при подстановке координат $\bar{b}'$ в уравнение $l$ результат будет $> 0 \Leftrightarrow$ точки $B, B'$ с радиус-векторами $\bar{b}, \bar{b}'$ лежат в одной полуплоскости относительно $l$.\\
+			Получили \bfseries критерий одноимённости пар $\bar{a}, \bar{b}$ и $\bar{a}, \bar{b}'$: они одноимённы $\Leftrightarrow$ точки, полученные прибавлением векторов $\bar{b}$ и $\bar{b}'$ к произвольной точке произвольной прямой с направляющим вектором $\bar{a}$, лежат относительно неё в одной полуплоскости. \mdseries 
+		\end{enumerate}
+	\end{examples}
+	\subsection{Угол от вектора до вектора}
+	\begin{definition}
+		Углом от вектора $\bar{a}$ до вектора $\bar{b}$ в ориентированном двумерном евклидовом пространстве называется угол между $\bar{a}$ и $\bar{b}$, взятый со знаком плюс, если пара $\bar{a}, \bar{b}$ положительно ориентирована, и со знаком минус иначе.
+	\end{definition}
+	\begin{definition}
+		Положительным углом от $\bar{a}$ до $\bar{b}$ называется угол $\phi$ от $\bar{a}$ до $\bar{b}$, если $\phi > 0$, и угол $2\pi + \phi$, если $\phi < 0$.
+	\end{definition}
+	\begin{definition}
+		Углом от прямой $l_{1}$ до прямой $l_{2}$ в ориентированном двумерном евклидовом пространстве называется наименьший положительный угол от направляющего вектора $l_{1}$ до направляющего вектора $l_{2}$.
+	\end{definition}
+	\begin{formula}(Известное ранее уравнение прямой. Угол наклона)\\
+		Пусть на плоскости задана прямоугольная система координат $O\bar{e}_{1}\bar{e}_{2}$ и в ней прямая $l$ определена уравнением $y = kx + b \Leftrightarrow kx - y + b = 0$. Прямая с направляющим вектором $e_{1}$ называется \bfseries осью абсцисс\mdseries, а угол от этой прямой до прямой $l$ - \bfseries углом наклона \mdseries прямой $l$.\\
+		Подсчитаем угол наклона $l$. Направляющие векторы $l$ имеют вид $\begin{pmatrix}\lambda\\ \lambda k\end{pmatrix}$, причём $\phi$, очевидно, зависит только от знака $\lambda$. Угол от $\begin{pmatrix} 1\\0 \end{pmatrix}$ до $\begin{pmatrix} \pm 1\\\pm k\end{pmatrix}$ равен углу от $\begin{pmatrix} -1\\0 \end{pmatrix}$ до $\begin{pmatrix} \mp 1\\\mp k\end{pmatrix}$, поэтому выбирать наименьший можем только из положительных углов от вектора $\begin{pmatrix} 1\\0 \end{pmatrix}$ - наименьшим, как нетрудно видеть, будет угол до $\begin{pmatrix} 1\\k \end{pmatrix}$ при $k>0$ и до $\begin{pmatrix} -1 \\ -k \end{pmatrix}$ иначе. Обозначив нужный вектор $\bar{k}$, имеем: 
+		\begin{align*}
+			\cos\phi = \cos\angle(\bar{e}_{1}, \bar{k}) = \frac{1}{\sqrt{1 + k^2}} \Rightarrow \sin\angle(\bar{e}_{1}, \bar{k}) = \pm\frac{|k|}{\sqrt{1 + k^2}} \Rightarrow \tg\phi = \pm k 
+		\end{align*}
+		Заметим, что при $k > 0$ необходимый угол должен иметь тангенс, больший нуля, а при $k < 0$ - меньший нуля. Отсюда видно, что вне зависимости от нужного нам вектора верно: \begin{boxedalign*} \tg\phi = k\end{boxedalign*}
+	\end{formula}
+	\subsection{Площади фигур на плоскости}
+	\begin{definition}
+		Фигуры $\Phi_{1}, \Phi_{2}$ называются конгруэнтными, если $\exists$ отображение $f: \Pi \rightarrow \Pi$, сохраняющее расстояния ($|f(A)f(B)| = |AB| \ \forall A, B$) такое, что $f(\Phi_{1}) = \Phi_{2}$.
+	\end{definition}
+	\begin{definition}
+		Площадь(мера) на евклидовой плоскости - численная величина (обозначается $S_{\Phi}, \Phi$ - фигура), соответствующая следующим свойствам:
+		\begin{enumerate}
+			\item Площадь квадрата со стороной 1 равна 1;
+			\item Площади конгруэнтных фигур равны;
+			\item Если $\Phi_{1}, \Phi_{2}$ - фигуры, $\exists \ S_{\Phi_{1}}, S_{\Phi_{2}}$ и $\Phi_{1} \cap \Phi_{2} = \varnothing$, то $\exists S_{\Phi_{1}\cup\Phi_{2}} = S_{\Phi_{1}} + S_{\Phi_{2}}$; 
+			\item Если $\Phi$ - фигура и существуют такие последовательности фигур $\{\phi_{n}\}_{n=1}^{\infty}$ и $\{\Phi_{n}\}_{n=1}^{\infty}$, что $\phi_{n} \subset \phi_{n+1} \subset \Phi \subset \Phi_{n+1} \subset \Phi{n} \ \forall n \geqslant 1$, причём $\lim \limits_{n\rightarrow\infty}S_{\phi_{n}}$ и $\lim \limits_{n\rightarrow\infty}S_{\Phi_{n}}$ существуют и равны, то $S_{\Phi} = \lim \limits_{n\rightarrow\infty}S_{\phi_{n}}$ = $\lim \limits_{n\rightarrow\infty}S_{\Phi_{n}}$
+		\end{enumerate} 
+	\end{definition}
+	\begin{consequense}(Площади некоторых фигур:)
+		\begin{itemize}
+			\item Площадь отрезка равна 0.
+			\begin{proof}
+				Из предельного перехода (Площадь отрезка с длиной 1 равна 0, иначе площадь квадрата со стороной 1 не была бы конечной, а из этого можно получить длину любого отрезка).
+			\end{proof}
+			\item Площадь квадрата со стороной $a$ равна $a^2$.
+			\begin{proof}
+				Для $a = \frac{1}{n}$ разбиваем квадрат со стороной 1 на $n^2$ квадратиков, для $a \in \mathbb{Q}$ складываем квадрат со стороной $\frac{m}{n}$ из предыдущих, для $a \notin \mathbb{Q}$ приближаем квадрат сверху и снизу квадратами с рациональными сторонами и переходим к пределам (по 4 пункту определения).
+			\end{proof}
+			\item Площадь прямоугольника со сторонами $a, b$ равна $ab$.
+			\begin{proof}
+				Рассмотрим квадрат со стороной $a+b$. Его можно разбить на квадрат со стороной $a$, квадрат со стороной $b$ и два нужных нам прямоугольника. Отсюда $2S = (a+b)^2 - a^2 -b^2 = 2ab \Rightarrow S = ab$.
+			\end{proof} 
+		\end{itemize}
+		Отсюда также выводятся формулы площади параллелограммма (перестановкой треугольника из параллелограммма получается прямоугольник) и треугольника (как половины параллелограммма).
+	\end{consequense}
+	\begin{definition}
+		Говорят. что параллелограмм натянут на векторы $\bar{a}, \bar{b}$, если для одной из вершин $A$ параллелограмма точки $A + \bar{a}$ и $A + \bar{b}$ также являются его вершинами. Площадь параллелограммма, натянутого на векторы $\bar{a}, \bar{b}$, обозначается $S_{\bar{a},\bar{b}}$.
+	\end{definition}
+	\begin{formula}(Площадь параллелограммма в прямоугольной с.к.)\\
+		Нам уже известно, что $S_{\bar{a},\bar{b}} = |\bar{a}||\bar{b}|\sin\phi$ (из выражения высоты параллелограммма через угол). В прямоугольной системе координат:\begin{align*}
+			S_{\bar{a},\bar{b}}^2 = |\bar{a}|^2|\bar{b}|^2\sin\phi = |\bar{a}|^2|\bar{b}|^2(1 - \cos^2\phi) = |\bar{a}|^2|\bar{b}|^2 - (\bar{a}, \bar{b})^2
+		\end{align*}
+		Если $\bar{a} = \begin{pmatrix} x_1 \\ y_1 \end{pmatrix}, \ \bar{b} = \begin{pmatrix} x_2 \\ y_2 \end{pmatrix}$, то $S_{\bar{a},\bar{b}}^2 = (x_1^2 + y_1^2)(x_2^2 + y_2^2) - (x_1x_2 + y_1y_2) = (x_1y_2 - x_2y_1)^2 \Rightarrow$ \begin{boxedalign*}S_{\bar{a},\bar{b}} = |\begin{vmatrix} x_1&y_1\\x_2&y_2 \end{vmatrix}|\end{boxedalign*}
+		При этом определитель $>0 \Leftrightarrow \bar{a}, \bar{b}$ одноимённа с базисом.
+	\end{formula}
+	\begin{definition}
+		Ориентированной площадью параллелограммма, натянутого на $\bar{a},\bar{b}$, на ориентированной плоскости называется число, равное $S_{\bar{a},\bar{b}}$, если пара $\bar{a},\bar{b}$ положительна, и $-S_{\bar{a},\bar{b}}$ иначе. Обозначается $<\bar{a}, \bar{b}>$.
+	\end{definition}
+	\begin{consequense}
+		В любом положительно ориентированном базисе $<\bar{a}, \bar{b}> = \begin{vmatrix} x_1&y_1\\x_2&y_2 \end{vmatrix}$
+	\end{consequense}
+	\begin{subtheorem} Свойства ориентированной площади:
+		\begin{enumerate}
+			\item $<\bar{a}, \bar{b}> = -<\bar{b}, \bar{a}>$
+			\item $<\bar{\lambda a}, \bar{b}> = \lambda<\bar{a}, \bar{b}> = <\bar{a}, \bar{\lambda b}>$
+			\item $<\bar{a} + \bar{b}, \bar{c}> = <\bar{a}, \bar{c}> + <\bar{b}, \bar{c}>$\\
+			($<\bar{a}, \bar{b} + \bar{c}> = <\bar{a}, \bar{b}> + <\bar{a}, \bar{c}>; <\bar{a} - \bar{b}, \bar{c}> = <\bar{a}, \bar{c}>-<\bar{b}, \bar{c}>$)
+		\end{enumerate}
+	\end{subtheorem}
+	\begin{proof}
+		Следует из свойств определителя.
+	\end{proof}
+	\bfseries Мораль в том, что дальше очев... \\(по свойствам производной, которые уже написал \href{https://github.com/yakovlevki/Calculus/blob/master/Calculus-1/calculus-1.pdf}{yakovlevki}) \mdseries
 \end{document}
