@@ -868,17 +868,17 @@
 		При этом определитель $>0 \Leftrightarrow \bar{a}, \bar{b}$ одноимённа с базисом.
 	\end{formula}
 	\begin{definition}
-		\ Ориентированной площадью параллелограмма, натянутого на $\bar{a},\bar{b}$, на ориентированной плоскости называется число, равное $S_{\bar{a},\bar{b}}$, если пара $\bar{a},\bar{b}$ положительна, и $-S_{\bar{a},\bar{b}}$ иначе. Обозначается $<\bar{a}, \bar{b}>$.
+		\ Ориентированной площадью параллелограмма, натянутого на $\bar{a},\bar{b}$, на ориентированной плоскости называется число, равное $S_{\bar{a},\bar{b}}$, если пара $\bar{a},\bar{b}$ положительна, и $-S_{\bar{a},\bar{b}}$ иначе. Обозначается $\langle\bar{a}, \bar{b}\rangle$.
 	\end{definition}
 	\begin{consequense}
-		В любом положительно ориентированном базисе $<\bar{a}, \bar{b}> = \begin{vmatrix} x_1&y_1\\x_2&y_2 \end{vmatrix}$
+		В любом положительно ориентированном базисе $\langle\bar{a}, \bar{b}\rangle = \begin{vmatrix} x_1&y_1\\x_2&y_2 \end{vmatrix}$
 	\end{consequense}
 	\begin{subtheorem} Свойства ориентированной площади:
 		\begin{enumerate}
-			\item $<\bar{a}, \bar{b}> = -<\bar{b}, \bar{a}>$
-			\item $<\bar{\lambda a}, \bar{b}> = \lambda<\bar{a}, \bar{b}> = <\bar{a}, \bar{\lambda b}>$
-			\item $<\bar{a} + \bar{b}, \bar{c}> = <\bar{a}, \bar{c}> + <\bar{b}, \bar{c}>$\\
-			($<\bar{a}, \bar{b} + \bar{c}> = <\bar{a}, \bar{b}> + <\bar{a}, \bar{c}>; <\bar{a} - \bar{b}, \bar{c}> = <\bar{a}, \bar{c}>-<\bar{b}, \bar{c}>$)
+			\item $\langle\bar{a}, \bar{b}\rangle = -\langle\bar{b}, \bar{a}\rangle$
+			\item $\langle\bar{\lambda a}, \bar{b}\rangle = \lambda\langle\bar{a}, \bar{b}\rangle = \langle\bar{a}, \bar{\lambda b}\rangle$
+			\item $\langle\bar{a} + \bar{b}, \bar{c}\rangle = \langle\bar{a}, \bar{c}\rangle + \langle\bar{b}, \bar{c}\rangle$\\
+			($\langle\bar{a}, \bar{b} + \bar{c}\rangle = \langle\bar{a}, \bar{b}\rangle + \langle\bar{a}, \bar{c}\rangle; \langle\bar{a} - \bar{b}, \bar{c}\rangle = \langle\bar{a}, \bar{c}\rangle-\langle\bar{b}, \bar{c}\rangle$)
 		\end{enumerate}
 	\end{subtheorem}
 	\begin{proof}
@@ -966,9 +966,9 @@
 	\subsection{Взаимное расположение прямой и плоскости}
 	\begin{formulas}(Случаи расположения)
 		Пусть $l = \{X_0 + t\bar{c}: t \in \mathbb{R}\}, \pi = \{X_1 + u\bar{a} + v\bar{b}\}$. Уже знаем, что для любых других точек прямой и плоскости верны те же выражения множеств точек. \\
-		Предположим, что прямая и плоскость пересекаются хотя бы в двух точках: пусть $X_0, X_1$ - их различные общие точки.Имеем $\overrightarrow{X_0X_0'} = t_0\bar{c} = u_0\bar{a} + v_0\bar{b}$ (для некоторых $t_0 \neq 0, u_0, v_0$, из принадлежности точек и прямой, и плоскости). Отсюда $\bar{c}$ выражается через $\bar{a}. \bar{b}$, а значит для любой $X \in l: X = X_0 + t\bar{c} = t(\frac{u_0}{t_0}\bar{a} + \frac{v_0}{t_0}\bar{b}) \in \pi$. Таким образом, 
+		Предположим, что прямая и плоскость пересекаются хотя бы в двух точках: пусть $X_0, X_1$ - их различные общие точки. Имеем $\overrightarrow{X_0X_0'} = t_0\bar{c} = u_0\bar{a} + v_0\bar{b}$ (для некоторых $t_0 \neq 0, u_0, v_0$, из принадлежности точек и прямой, и плоскости). Отсюда $\bar{c}$ выражается через $\bar{a}. \bar{b}$, а значит для любой $X \in l: X = X_0 + t\bar{c} = t(\frac{u_0}{t_0}\bar{a} + \frac{v_0}{t_0}\bar{b}) \in \pi$. Таким образом, 
 		\begin{center}\underline{
-			$l,\pi$ имеют две т. пересечения $\Leftrightarrow l \subset \pi \Leftrightarrow l \cap \pi \neq \varnothing$ и $\bar{c}$ выражается через $\bar{a}, \bar{b}$. }
+			$l,\pi$ имеют 2 точки пересечения $\Leftrightarrow l \subset \pi \Leftrightarrow l \cap \pi \neq \varnothing$, $\bar{c}$ выражается через $\bar{a}, \bar{b}$}
 		\end{center}
 		Заметим, что $X \in l \cap \pi \Leftrightarrow X = X_0 + t_0\bar{c} = X_1 + u_0\bar{a} + v_0\bar{b} \Rightarrow \overrightarrow{X_0X_1} = u_0\bar{a} + v_0\bar{b} - t_0\bar{c}$. В случае некомпланарности $\bar{a}, \bar{b}, \bar{c}$ вектор $\overrightarrow{X_0X_1}$ выражается через них единственным образом, то есть точка пересечения есть и единственная, т.е.
 		\begin{center}\underline{
@@ -977,7 +977,7 @@
 		(В случае, если $\bar{c}$ выражается через $\bar{a}, \bar{b}$: $l, \pi$ имеют общую точку $\Rightarrow l \subset \pi$, поэтому т.пересечения одна только в этом случае)
 	\end{formulas}
 	\begin{consequense}
-		\underline{$\bar{c}$ выражается через $\bar{a}, \bar{b} \Leftrightarrow$ либо $l\subset\pi$, либо $l\cup\pi=\varnothing$} (в этом случае говорят, что \bfseries прямая параллельна плоскости\mdseries)\\
+		\underline{$\bar{c}$ выражается через $\bar{a}, \bar{b} \Leftrightarrow$ либо $l\subset\pi$, либо $l\cap\pi=\varnothing$} (в этом случае говорят, что \bfseries прямая параллельна плоскости\mdseries)\\
 		\underline{$\bar{c}$ не выражается через $\bar{a}, \bar{b} \Leftrightarrow$ $l\cap\pi$ - одна точка.}
 	\end{consequense}
 	\subsection{Взаимное расположение двух прямых}
@@ -995,5 +995,82 @@
 		Прямые $l_1, l_2$ скрещиваются $\Leftrightarrow$ они не пересекаются и $c_1 \nparallel c_2$.\\
 		$l_1 \parallel l_2 \Leftrightarrow c_1 \parallel c_2$ (иначе прямые либо скрещиваются, либо пересекаются).
 	\end{consequense}
+	\section{Плоскость в точечно-евклидовом пр-ве.}
+	\begin{definition}
+		Пусть $\pi: Ax + By + Cz + D = 0$ в прямоугольной с.к. Вектор $\bar{n} = \begin{pmatrix} A  \\ B \\ C \end{pmatrix}$ называется нормалью (нормальным вектором) к плоскости $\pi$
+	\end{definition}
+	\begin{consequense}
+		Вектор нормали $\bar{n}$ к плоскости $\pi$ ортогонален любому вектору из $\pi$.
+	\end{consequense}
+	\begin{proof}
+		Пусть $X_0 = (x_0, y_0, z_0), X_1 = (x_1, y_1, z_1), X_0, X_1 \in \pi \Rightarrow A(x_1-x_0) + B(y_1-y_0) + C(z_1 - z_0) = 0$ (вектор $\overrightarrow{X_0X_1} \parallel \pi$). Данное выражение также означает, что $\begin{pmatrix} x_1-x_0&y_1-y_0&z_1-z_0\end{pmatrix}\begin{pmatrix} A  \\ B \\ C \end{pmatrix} = 0 \Rightarrow \bar{n}\perp\overrightarrow{X_0X_1}$.
+	\end{proof}
+	\begin{consequense}
+		Зная вектор нормали, направляющие векторы плоскости можно найти как любые два неколлинеарных вектора, ортогональных нормали.
+	\end{consequense}
+	\subsection{Расстояния}
+	\begin{formula}(Расстояние от точки до плоскости)\\
+		$d(X_0, \pi) = \inf\{|\overrightarrow{X_0Y}|:Y\in\pi\}$. Из теоремы Пифагора (аналогично расстоянию от точки до прямой) следует, что это расстояние - длина отрезка перпендикуляра к $\pi$, проходящего через $X_0$, заключённого между $X_0$ и $\pi$ (только в прямоугольной с.к.!)
+		Найдём это расстояние. Перпендикуляр к $\pi$ через точку $X_0$ имеет направляющий вектор $\begin{pmatrix} A  \\ B \\ C \end{pmatrix}$ и проходит через $(x_0, y_0, z_0)$, т.е. $l:\begin{cases}x = x_{0} + tA \\ y = y_{0} + tB \\ z = z_0 + tC\end{cases}$.
+		Точка пересечения $l$ и $\pi$: \begin{align*}
+			A(x_0+tA) + B(y_0+tB) + C(z_0+tC) + D = 0 \Rightarrow t = \frac{Ax_0 + By_0 + Cz_0 + D}{A^2 + B^2 + C^2},
+		\end{align*}
+		квадрат расстояния от $X_0$ до неё равен $(tA)^2 + (tB)^2 +(tC)^2 = (\frac{(Ax_0 + By_0 + Cz_0 + D)^2}{A^2 + B^2 + C^2})$\begin{boxedalign*}
+			\Rightarrow d(X_0, \pi) = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+		\end{boxedalign*}
+	\end{formula}
+	Величина расстояния от прямой $l$ до плоскости $\pi$ в пространстве имеет смысл только при $l \parallel \pi$. Пусть $\bar{a}$ - направляющий вектор $l$ и $\bar{n}$ - нормаль к $\pi$. Проведём плоскость $\pi'$ через $l$ с направляющими векторами $\bar{a}, \bar{n}$. Тогда все перпендикуляры, опущенные из точки прямой $l$ на $\pi$, будут лежать в $\pi'$. Кроме того, их основания будут лежать на $l' = \pi \cap \pi'$, а отсюда расстояния от всех точек $l$ до $\pi$ одинаковы. Поэтому \bfseries расстояние от прямой до плоскости, параллельной ей, равно расстоянию от любой точки прямой до плоскости.\mdseries 
+	\begin{formula}(Расстояние от точки до прямой)\\
+		Пусть в прямоугольной с.к. даны $X_1 = (x_1, y_1, z_1)$ - точка и $l$ - прямая, проходящая через $X_0 = (x_0, y_0, z_0)$ с направляющим вектором $\begin{pmatrix}a\\b\\c\end{pmatrix}$.\\
+		(ВОЗМОЖНО, ЗДЕСЬ БУДЕТ ЧЕРТЁЖ)\\
+		$d(X_1, l) = |X_0X_1|\cdot\sin\phi$ (угол между $\overrightarrow{X_0X_1}$ и $l$) = $|X_0X_1|\cdot\sqrt{1 - \cos^2\phi} \Rightarrow d(X_1, l)^2 = $ (после раскрытия скобок)\begin{boxedalign*}
+			(x_1-x_0)^2 + (y_1-y_0)^2 + (z_1-z_0)^2 - \frac{(a(x_1-x_0) + b(y_1-y_0) + c(z_1-z_0))^2}{a^2 + b^2 + c^2} 
+		\end{boxedalign*}
+	\end{formula} 
+	\begin{formula}(Расстояние между скрещивающимися прямыми)\\
+		Пусть $l_1, l_2$ - скрещивающиеся прямые с направляющими векторами $\bar{a}, \bar{b}$ соотв., $X_1 \in l_1, X_2 \in l_2$. Из уже известных нам соображений расстояние между $X_1$ и $X_2$ минимально в случае, если $\overrightarrow{X_1X_2} \perp l_1, l_2$.\\Покажем существование таких $X_1, X_2$: построим плоскость $\pi$ через $l_1$ с направляющими векторами $\bar{a}, \bar{b}$ и построим перпендикуляры из точек $l_2$ на $\pi$. Их основания лежат на некоторой прямой $l \parallel l_1$, причём $l_2 \nparallel l$, потому что иначе $l_1 \parallel l_2$. Значит, существует точка пересечения $l_1$ и $l$, а следовательно существует перпендикуляр из точки $l_2$ на $\pi$, основание которого лежит на $l_1$, т.е. этот перпендикуляр общий для $l_1, l_2$.\\
+		Тогда для произвольных $X_1, X_2$ на прямых $d(l_1, l_2) = d(l_2, \pi)$ - длина перпендикуляра, опущенного на $\pi$ из любой точки $l_2 =$ высота параллелепипеда, построенного на векторах $\bar{a}, \bar{b}, \overrightarrow{X_1X_2} \Rightarrow$
+		\begin{boxedalign*}
+			d(l_1, l_2) = \frac{V_{\bar{a}, \bar{b}, \overrightarrow{X_1X_2}}}{S_{\bar{a}, \bar{b}}}
+		\end{boxedalign*}
+		Осталось только получить формулы для объёма.
+	\end{formula}
+	\subsection{Векторное и смешанное произведение. Объём}
+	\begin{definition}
+		Векторным произведением неколлинеарных векторов $\bar{a}, \bar{b}$ в ориентированном трёхмерном точечно-евклидовом пространстве называется вектор $\bar{v}$ такой, что\begin{enumerate}
+			\item $|\bar{v}| = S_{\bar{a},\bar{b}} = \langle\bar{a}, \bar{b}\rangle;$
+			\item $\bar{v} \perp \bar{a}, \bar{v} \perp \bar{b};$
+			\item Тройка $\bar{a}, \bar{b}, \bar{v}$ имеет положительную ориентацию.
+		\end{enumerate}
+		Обозначается $[\bar{a}, \bar{b}]$.\\
+		Для $\bar{a} \parallel \bar{b} \ \ [\bar{a}, \bar{b}] = 0$. 
+	\end{definition}
+
+	Обычный объём определяется полностью аналогично рлощади на плоскости.
+	Из свойств выводится, что объём параллелепипеда, натянутого на векторы $\bar{a}, \bar{b}, \bar{c}$ (т.е. для его вершины $X_0$ его вершинами также являются $X_0 + \bar{a}, X_0 + \bar{b}, X_0 + \bar{c}$), равен $\langle\bar{a}, \bar{b}\rangle \cdot \ h$, где $h = \bar{c}\cdot\sin\phi$ - высота параллелепипеда $\phi$ - угол между $\bar{c}$ и плоскостью $X_0 + u\bar{a} + v\bar{b}$. Запишем $\phi$ как $\frac{\pi}{2} - \psi$, где $\psi$ - угол между $\bar{c}$ и нормалью к плоскости $X_0 + u\bar{a} + v\bar{b}$. Отсюда:
+	\begin{align*}
+		h = |\bar{c}\cdot\cos\psi| = \ \vline\frac{(\bar{c}, [\bar{a}, \bar{b}])}{|\bar{c}||[\bar{a}, \bar{b}]|}\cdot \bar{c}\ \vline = \frac{|(\bar{c}, [\bar{a}, \bar{b}])|}{|[\bar{a}, \bar{b}]|} = \frac{|(\bar{c}, [\bar{a}, \bar{b}])|}{\langle\bar{a}, \bar{b}\rangle} \Rightarrow V_{\bar{a}, \bar{b}, \bar{c}} = |([\bar{a}, \bar{b}], \bar{c})|
+	\end{align*}
+	Определим ориентацию тройки $\bar{a}, \bar{b}, \bar{c}$: рассмотрим базис $\bar{a}, \bar{b}, \bar{n}$. В нём $\bar{c}$ имеет координаты $\begin{pmatrix} c_1  \\ c_2 \\ (\cos\psi)|\bar{c}| \end{pmatrix} (c_1, c_2$ неважны), т.е. матрица перехода от этого базиса к $\bar{a}, \bar{b}, \bar{c}$ равна $\begin{pmatrix} 1&0&c_1\\0&1&c_2\\0&0&(\cos\psi)|c|\end{pmatrix}$. Её определитель $>0 \Leftrightarrow \cos\phi > 0 \Leftrightarrow ([\bar{a}, \bar{b}], \bar{c}) > 0$. Отсюда \underline{$([\bar{a}, \bar{b}], \bar{c}) > 0 \Leftrightarrow$ тройка $\bar{a}, \bar{b}, \bar{c}$ положительно ориентирована}.
+	\begin{definition}
+		Ориентированным объёмом параллелепипеда, натянутого на векторы $\bar{a}, \bar{b}, \bar{c}$, называется число $\langle \bar{a}, \bar{b}, \bar{c}\rangle = ([\bar{a}, \bar{b}], \bar{c})$. Также это число называется смешанным произведением векторов $\bar{a}, \bar{b}, \bar{c}$.
+	\end{definition}
+	\begin{consequense}
+		$V_{\bar{a}, \bar{b}, \bar{c}} = |\langle\bar{a}, \bar{b}, \bar{c}\rangle|;\\\langle\bar{a}, \bar{b}, \bar{c}\rangle = V_{\bar{a}, \bar{b}, \bar{c}} \Leftrightarrow \bar{a}, \bar{b}, \bar{c}$ положительно ориентирована.   
+	\end{consequense}
+	\begin{subtheorem}(Свойства смешанного произведения: )
+		\begin{enumerate}
+			\item $\langle \bar{a}, \bar{b}, \bar{c}\rangle = -\langle \bar{b}, \bar{a}, \bar{c}\rangle = -\langle \bar{a}, \bar{c}, \bar{b}\rangle = -\langle \bar{c}, \bar{b}, \bar{a}\rangle$ (очев);
+			\item $\langle \bar{a}, \bar{b}, \bar{c}_1 + \bar{c}_2 \rangle = \langle \bar{a}, \bar{b}, \bar{c}_1\rangle + \langle \bar{a}, \bar{b}, \bar{c}_2\rangle$;
+			\item $\langle \bar{a}, \bar{b}, \lambda\bar{c}\rangle = \lambda\langle \bar{a}, \bar{b}, \bar{c}\rangle$;
+			\item $\langle \bar{a}, \bar{b}_1 + \bar{b}_2, \bar{c}\rangle = \langle \bar{a}, \bar{b}_1, \bar{c}\rangle + \langle \bar{a}, \bar{b}_2, \bar{c}\rangle$;
+			\item $\langle \bar{a}, \lambda\bar{b}, \bar{c}\rangle = \lambda\langle \bar{a}, \bar{b}, \bar{c}\rangle$;
+			\item $\langle \bar{a}_1 + \bar{a}_2, \bar{b}, \bar{c}\rangle = \langle \bar{a}_1, \bar{b}, \bar{c}\rangle + \langle \bar{a}_2, \bar{b}, \bar{c}\rangle$;
+			\item $\langle \lambda\bar{a}, \bar{b}, \bar{c}\rangle = \lambda\langle \bar{a}, \bar{b}, \bar{c}\rangle$;
+		\end{enumerate}
+		$\circled{1}$ - очев, $\circled{2}, \circled{3}$ - из свойств скалярного произведения, $\circled{4} - \circled{7}$ получаются из $\circled{2}, \circled{3}$ с помощью $\circled{1}$.
+	\end{subtheorem}
+	\subsection{Векторное и смешанное произведение в ортонормированном базисе}
+	Пусть $\bar{e}_{1}, \bar{e}_{2}, \bar{e}_{3}$ - ортонормированный положительно ориентированный базис.
 	\bfseries Мораль в том, что дальше очев... \\(из уравнения касательной, которое уже вывел \href{https://github.com/yakovlevki/Calculus/blob/master/Calculus-1/calculus-1.pdf}{yakovlevki}) \mdseries
 \end{document}
