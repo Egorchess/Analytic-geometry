@@ -997,7 +997,7 @@
 	\end{consequense}
 	\section{Плоскость в точечно-евклидовом пр-ве.}
 	\begin{definition}
-		Пусть $\pi: Ax + By + Cz + D = 0$ в прямоугольной с.к. Вектор $\bar{n} = \begin{pmatrix} A  \\ B \\ C \end{pmatrix}$ называется нормалью (нормальным вектором) к плоскости $\pi$
+		Пусть $\pi: Ax + By + Cz + D = 0$ в прямоугольной с.к. Вектор $\bar{n} = \begin{pmatrix} A  \\ B \\ C \end{pmatrix}$ называется нормалью (нормальным вектором) к плоскости $\pi$.
 	\end{definition}
 	\begin{consequense}
 		Вектор нормали $\bar{n}$ к плоскости $\pi$ ортогонален любому вектору из $\pi$.
@@ -1046,7 +1046,7 @@
 		Для $\bar{a} \parallel \bar{b} \ \ [\bar{a}, \bar{b}] = 0$. 
 	\end{definition}
 
-	Обычный объём определяется полностью аналогично рлощади на плоскости.
+	Обычный объём определяется полностью аналогично площади на плоскости.
 	Из свойств выводится, что объём параллелепипеда, натянутого на векторы $\bar{a}, \bar{b}, \bar{c}$ (т.е. для его вершины $X_0$ его вершинами также являются $X_0 + \bar{a}, X_0 + \bar{b}, X_0 + \bar{c}$), равен $\langle\bar{a}, \bar{b}\rangle \cdot \ h$, где $h = \bar{c}\cdot\sin\phi$ - высота параллелепипеда $\phi$ - угол между $\bar{c}$ и плоскостью $X_0 + u\bar{a} + v\bar{b}$. Запишем $\phi$ как $\frac{\pi}{2} - \psi$, где $\psi$ - угол между $\bar{c}$ и нормалью к плоскости $X_0 + u\bar{a} + v\bar{b}$. Отсюда:
 	\begin{align*}
 		h = |\bar{c}\cdot\cos\psi| = \ \vline\frac{(\bar{c}, [\bar{a}, \bar{b}])}{|\bar{c}||[\bar{a}, \bar{b}]|}\cdot \bar{c}\ \vline = \frac{|(\bar{c}, [\bar{a}, \bar{b}])|}{|[\bar{a}, \bar{b}]|} = \frac{|(\bar{c}, [\bar{a}, \bar{b}])|}{\langle\bar{a}, \bar{b}\rangle} \Rightarrow V_{\bar{a}, \bar{b}, \bar{c}} = |([\bar{a}, \bar{b}], \bar{c})|
@@ -1067,10 +1067,42 @@
 			\item $\langle \bar{a}, \lambda\bar{b}, \bar{c}\rangle = \lambda\langle \bar{a}, \bar{b}, \bar{c}\rangle$;
 			\item $\langle \bar{a}_1 + \bar{a}_2, \bar{b}, \bar{c}\rangle = \langle \bar{a}_1, \bar{b}, \bar{c}\rangle + \langle \bar{a}_2, \bar{b}, \bar{c}\rangle$;
 			\item $\langle \lambda\bar{a}, \bar{b}, \bar{c}\rangle = \lambda\langle \bar{a}, \bar{b}, \bar{c}\rangle$;
+			\item $\langle \bar{e}_{1}, \bar{e}_{2}, \bar{e}_{3}\rangle = 1 (\bar{e}_{1}, \bar{e}_{2}, \bar{e}_{3}$ - ортонормированный базис)
 		\end{enumerate}
-		$\circled{1}$ - очев, $\circled{2}, \circled{3}$ - из свойств скалярного произведения, $\circled{4} - \circled{7}$ получаются из $\circled{2}, \circled{3}$ с помощью $\circled{1}$.
+		$\circled{1}, \circled{8}$ - очев, $\circled{2}, \circled{3}$ - из свойств скалярного произведения, $\circled{4} - \circled{7}$ получаются из $\circled{2}, \circled{3}$ с помощью $\circled{1}$.
 	\end{subtheorem}
 	\subsection{Векторное и смешанное произведение в ортонормированном базисе}
 	Пусть $\bar{e}_{1}, \bar{e}_{2}, \bar{e}_{3}$ - ортонормированный положительно ориентированный базис.
-	\bfseries Мораль в том, что дальше очев... \\(из уравнения касательной, которое уже вывел \href{https://github.com/yakovlevki/Calculus/blob/master/Calculus-1/calculus-1.pdf}{yakovlevki}) \mdseries
+	В курсе алгебры доказывается, что единственная функция от строк (столбцов) $\bar{a} = (a_1, a_2, a_3), \bar{b} = (b_1, b_2, b_3), \bar{c} = (c_1, c_2, c_3)$ со свойствами $\circled{1} - \circled{8}$ (полилинейность, кососимметричность, единица в $\bar{e}_{1}, \bar{e}_{2}, \bar{e}_{3}$) - определитель матрицы $\begin{pmatrix} a_1&a_2&a_3 \\ b_1&b_2&b_3 \\ c_1&c_2&c_3 \end{pmatrix}$ (или $\begin{pmatrix} a_1&b_1&c_1 \\ a_2&b_2&c_2 \\ a_3&b_3&c_3 \end{pmatrix}$)\\
+	Следовательно, $\langle \bar{a}, \bar{b}, \bar{c}\rangle = \begin{vmatrix} a_1&b_1&c_1 \\ a_2&b_2&c_2 \\ a_3&b_3&c_3 \end{vmatrix}, V_{\bar{a}, \bar{b}, \bar{c}} = \vline \begin{vmatrix} a_1&b_1&c_1 \\ a_2&b_2&c_2 \\ a_3&b_3&c_3 \end{vmatrix} \ \vline$ (модуль).
+	\begin{formula}(Векторное произведение в прямоугольной с.к.)\\
+		Знаем, что в ортонормированном базисе координаты вектора $\bar{x}$ имеет координаты\begin{align*}
+			x = (\bar{x}, \bar{e}_1), \ \ y = (\bar{x}, \bar{e}_2), \ \ z = (\bar{x}, \bar{e}_3)
+		\end{align*}
+		Вычислим: $([\bar{a}, \bar{b}], \bar{e}_1) = \begin{vmatrix} a_1&a_2&a_3 \\ b_1&b_2&b_3 \\ 1&0&0 \end{vmatrix} = \begin{vmatrix} a_2&a_3\\b_2&b_3 \end{vmatrix}$.\\
+		Аналогично $([\bar{a}, \bar{b}], \bar{e}_2) = -\begin{vmatrix} a_1&a_3\\b_1&b_3 \end{vmatrix}; \ \ ([\bar{a}, \bar{b}], \bar{e}_3) = \begin{vmatrix} a_1&a_2\\b_1&b_2 \end{vmatrix}$
+		Данную формулу обычно записывают в виде определителя:\begin{boxedalign*}
+			[\bar{a}, \bar{b}] = \begin{vmatrix}\bar{e}_1&\bar{e}_2&\bar{e}_3\\a_1&a_2&a_3 \\ b_1&b_2&b_3\end{vmatrix}
+		\end{boxedalign*}
+		(не является определителем по сути, но считается по той же формуле)
+	\end{formula}
+	\begin{remark}
+		Прямые $l_1 = X_1 + t\bar{a}_1, l_2 = X_2 + t\bar{a}_2$ скрещиваются $\Leftrightarrow \\\langle \overrightarrow{X_1X_2}, \bar{a}, \bar{b}\rangle \neq 0$.
+	\end{remark}
+	\subsection{Расстояния через векторное произведение}
+	Расстояние от точки $X_1$ до прямой $l: X = X_0 +t\bar{a}$ - высота параллелограмма, натянутого на $\bar{a}, \overrightarrow{X_0X_1} = \frac{|S_{\bar{a}, \overrightarrow{X_0X_1}}|}{|\bar{a}|} \Rightarrow$\begin{boxedalign*}
+		d(X, l) = \frac{|[\overrightarrow{X_0X_1}, \bar{a}]|}{|\bar{a}|}
+	\end{boxedalign*}
+	Расстояние от точки $X_1$ до прямой $\pi: X = X_0 + u\bar{a}+v\bar{b}$ - высота параллелограмма, натянутого на $\bar{a}, \bar{b}, \overrightarrow{X_0X_1} = \frac{|V_{\bar{a}, \bar{b}, \overrightarrow{X_0X_1}}|}{[\bar{a}, \bar{b}]} \Rightarrow$\begin{boxedalign*}
+		d(X, \pi) = \frac{|\langle\overrightarrow{X_0X_1}, \bar{a}, \bar{b}\rangle|}{|[\bar{a}, \bar{b}]|}
+	\end{boxedalign*}
+	Расстояние между скрещивающимися прямыми $l_1 = X_1 + t\bar{a},\ l_2 = X_2 + t\bar{b}$: \begin{boxedalign*}
+		d(l_1, l_2) = \frac{|\langle\overrightarrow{X_1X_2}, \bar{a}, \bar{b}\rangle|}{|[\bar{a}, \bar{b}]|}
+	\end{boxedalign*}
+	(так как равно расстоянию от точки первой прямой до плоскости, параллельной первой прямой и проходящей через вторую)
+	\begin{definition}
+		Углом между плоскостями называется угол между их нормалями.\\
+		Углом между прямой и плоскостью называется угол между прямой и её ортогональной проекцией на плоскость ($= \frac{\pi}{2} - \angle(l, \bar{n})$)
+	\end{definition}
+	\bfseries Мораль в том, что дальше эллипс...\mdseries
 \end{document}
