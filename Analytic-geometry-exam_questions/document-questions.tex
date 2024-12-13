@@ -15,8 +15,8 @@
 \usepackage{soul}
 \usepackage{graphicx}
 \usepackage{enumerate}
-
-
+\usepackage{nicematrix}
+\usepackage{booktabs}
 \usepackage{tikz,amstext}
 \newlength{\tempheight}
 \newcommand{\Let}[0]{%
@@ -1013,9 +1013,241 @@
 	Расстояние между скрещивающимися прямыми $l_1 = X_1 + t\bar{a},\ l_2 = X_2 + t\bar{b}$: \begin{boxedalign*}
 		d(l_1, l_2) = \frac{|\langle\overrightarrow{X_1X_2}, \bar{a}, \bar{b}\rangle|}{|[\bar{a}, \bar{b}]|}
 	\end{boxedalign*}
-	(так как равно расстоянию от точки первой прямой до плоскости, параллельной первой прямой и проходящей через вторую)\\
-	\bfseries Вот так, дорогие друзья, и не заканчивается эта история, потому что дослали ещё билетов))\\
-	Благодарю за чтение)\mdseries
+	(так как равно расстоянию от точки первой прямой до плоскости, параллельной первой прямой и проходящей через вторую)
+	\section{Линии второго порядка}
+	\subsection{Определения}
+	Далее рассматриваем аффинную систему координат на плоскости (как на аффинном или точечно-евклидовом пространстве).
+	\begin{definition}
+		Линией первого порядка называется множество точек $\{(x, y): Ax + By + C =0\}$, где $A, B, C$ - вещественные числа и хотя бы одно из чисел $A, B$ не равно нулю. Другими словами, это множество точек, координаты которых удовлетворяют фиксированному уравнению первой степени.
+	\end{definition}
+	(Это прямая)
+	\begin{definition}
+		Линией второго порядка (кривой второго порядка) называется множество точек, координаты которых (в некоторой аффинной системе координат) удовлетворяют уравнению $F(x, y) = 0$, где \begin{align*}
+			F(x, y) = a_{11}x^2 + 2a_{12}xy + a_{22}y^2 + 2a_{1}x + 2a_{2}y + a_{0}
+		\end{align*}
+		где $a_11, a_12, a_22, a_1, a_2, a_0$ - некоторые фиксированные числа и хотя бы одно из чисел $a_11, a_12, a_22$. Выражение для $F(x, y)$ называется многочленом второй степени от переменных $x, y$. Уравнение $F(x, y) = 0$ называется общим уравнением линии второго порядка.
+	\end{definition}
+	\begin{definition}
+		Многочлен $F(x, y)$ ставит в соответствие каждой паре чисел $(x, y)$ некоторое вещественное число. С ним связано отображение $f: \pi \rightarrow \mathbb{R}$ (вместо пары чисел $f$ сопоставляет точку плоскости с такими координатами в заданной с.к.) Отображение $f$ называется квадратичным отображением, представленным многочленом $F$.
+	\end{definition}
+	\begin{remark}
+		Соответствие $F \leftrightarrow f$ взаимно однозначно.\\
+		(Каждая точка однозначно определяется своими координатами $\Rightarrow f$ однозначно определяется $F$; подставив в общую формулу для $F(x, y)$ координаты шести различных точек, однозначно определим коэффициенты $\Rightarrow F$ однозначно определяется $f$).
+	\end{remark}
+	\begin{definition}
+		Квадратичная часть $F_1(x, y) = a_{11}x^2 + 2a_{12}xy + a_{22}y^2$ многочлена $F(x, y)$ называется его квадратичной формой.
+	\end{definition}
+	\begin{definition}
+		Линия второго порядка в заданной системе координат однозначно определяется матрицей коэффициентов $A = \begin{pmatrix}a_{11}&a_{12}&a_{1}\\a_{12}&a_{22}&a_{2}\\a_{1}&a_2&a_{0}\end{pmatrix}$. Она называется большой матрицей линии второго порядка.
+	\end{definition}
+	\begin{definition}
+		Квадратичная форма линии второго порядка в заданной системе координат однозначно определяется матрицей коэффициентов $A_1 =\\\begin{pmatrix}a_{11}&a_{12}\\a_{12}&a_{22}\end{pmatrix}$. Она называется малой матрицей линии второго порядка.
+	\end{definition}
+	\subsection{Формы записи}
+	Имеют место равенства (несложно проверить):
+	\begin{boxedalign*}
+		F(x, y) = \begin{pmatrix}x&y&1\end{pmatrix}A\begin{pmatrix} x \\ y \\ 1 \end{pmatrix}; \ \ \ 
+		F_1(x, y) = \begin{pmatrix}x&y\end{pmatrix}A_1\begin{pmatrix} x \\ y \end{pmatrix}
+	\end{boxedalign*}
+	В прямоугольной системе координат на евклидовой плоскости также имеет место следующее равенство (из выражения скалярного произведения):
+	\begin{boxedalign*}
+		F(x, y) = \begin{pmatrix}x&y\end{pmatrix}A_1\begin{pmatrix} x \\ y \end{pmatrix} + 2\begin{pmatrix}x&y\end{pmatrix}\begin{pmatrix}a_1\\a_2\end{pmatrix} + a_0
+	\end{boxedalign*}
+	\subsection{Связь уравнений в разных системах координат}
+	Далее работаем в прямоугольной системе координат. Цель - избавиться от слагаемого с $xy$, т.е. перейти в такую прямоугольную систему координат, что $A_1$ в ней - диагональная.\\
+	(Для произвольных аффинных систем координат задача упрощения уравнения простая - можно выделить полный квадрат в квадратичной форме и заменой избавиться сначала от члена с $xy$, а затем и от линейных членов за исключением нескольких простых случаев)
 
-	\bfseries Мораль в том, что дальше жесть с линиями второго порядка...\mdseries
+	Сначала будем изменять только базис. Пусть старая система координат задана репером $O\bar{e}_{1}\bar{e}_{2}$, новая - $O\bar{e}_{1}'\bar{e}_{2}'$ и $C$ - матрица перехода от старого базиса к новому. Тогда старые координаты радиус-вектора точки $X = (x, y)$ выражаются через новые $(x', y')$ так:\begin{align*}\begin{pmatrix} x \\ y \end{pmatrix} = C\begin{pmatrix} x'\\ y' \end{pmatrix} \ \ \Rightarrow \begin{pmatrix} x&y \end{pmatrix} = \begin{pmatrix} x'&y' \end{pmatrix}C^T\end{align*}
+	Очевидно, многочлен линии второго порядка изменится, хоть линия и не меняется как множество точек. Назовём новый многочлен, полученный подстановкой новых координат в старый многочлен, $F'$. Тогда:
+	\begin{align*}
+		F'(x', y') = \begin{pmatrix} x'&y' \end{pmatrix}C^T \cdot A_1 \cdot C\begin{pmatrix} x'\\ y' \end{pmatrix} + 2\begin{pmatrix} x'&y' \end{pmatrix}C^T\begin{pmatrix}a_1\\a_2\end{pmatrix} + a_0 = \\ = \begin{pmatrix} x'&y' \end{pmatrix}\cdot A_1' \cdot\begin{pmatrix} x'\\ y' \end{pmatrix} + 2\begin{pmatrix} x'&y' \end{pmatrix}\begin{pmatrix}a_1'\\a_2'\end{pmatrix} + a_0 \ \ \ \ \ \ \ \ \ \ \ \ \,
+	\end{align*}
+	где $A_1' = C^TAC$ и $\begin{pmatrix}a_1'\\a_2'\end{pmatrix} = C^T\begin{pmatrix}a_1\\a_2\end{pmatrix}$.\\
+	Далее прямой подсчет показывает, что большая матрица изменяется так: \begin{align*}
+		A' = \begin{pNiceMatrix}\Block{2-2}<\Huge>{C}&&0\\&&0\\0&0&1\end{pNiceMatrix}^T \cdot A \cdot \begin{pNiceMatrix}\Block{2-2}<\Huge>{C}&&0\\&&0\\0&0&1\end{pNiceMatrix}
+	\end{align*} 
+	Теперь изменим ещё и начало координат. Тогда:\begin{align*}
+		\begin{pmatrix} x \\ y \\ 1 \end{pmatrix} = D \begin{pmatrix} x' \\ y' \\ 1 \end{pmatrix}, \text{где} \ \ D = \begin{pNiceMatrix}\Block{2-2}<\Huge>{C}&&x_0\\&&y_0\\0&0&1\end{pNiceMatrix} 
+	\end{align*}
+	Подставляя в выражение $F(x, y)$, получим: \begin{align*}
+		F'(x, y) = \begin{pmatrix}x'&y'&1\end{pmatrix}D^TAD\begin{pmatrix} x' \\ y' \\ 1 \end{pmatrix}, \text{т.е.}\ \  A' = D^TAD.
+	\end{align*}
+	Несложно проверить, что при такой замене также верно равенство $A_1' = C^TAC$.
+	\section{Канонические уравнения линий второго порядка}
+	\subsection{Собственные векторы и значения}
+	Итак, найдём необходимую матрицу $C$. Она должна являться матрицей перехода от одного ортонормированного базиса к другому, т.е. она по определению ортогональна. Таким образом, необходимо найти такие векторы $\bar{e}_{1}', \bar{e}_{2}'$ (новый базис), что: \begin{enumerate}
+		\item $\bar{e}_{1}' \perp \bar{e}_{2}';$
+		\item $|\bar{e}_{1}'| = |\bar{e}_{2}'| = 1;$
+		\item Если $\bar{e}_{1}' = \begin{pmatrix} c_{11} \\ c_{21} \end{pmatrix}, \bar{e}_{2}' = \begin{pmatrix} c_{12} \\ c_{22} \end{pmatrix}$, то матрица $\begin{pmatrix} c_{11}&c_{12} \\ c_{21}&c_{22} \end{pmatrix}$ - искомая матрица $C$. Она уже будет ортогональной, т.е. достаточно условия, что $A_1' = C^TA_1C$ - диагональная (пусть равна $\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}$).
+	\end{enumerate}
+	\begin{align*}
+		A_1' = C^{-1}A_1C \Leftrightarrow A_1C = CA_1' \Leftrightarrow A_1\begin{pmatrix} c_{11}&c_{12} \\ c_{21}&c_{22} \end{pmatrix} = \begin{pmatrix} c_{11}&c_{12} \\ c_{21}&c_{22} \end{pmatrix}\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix} \Leftrightarrow\\\Leftrightarrow
+		\begin{cases}
+			A_1 \begin{pmatrix} c_{11} \\ c_{21} \end{pmatrix} = \lambda_1 \begin{pmatrix} c_{11} \\ c_{21} \end{pmatrix}\\
+			A_1 \begin{pmatrix} c_{12} \\ c_{22} \end{pmatrix} = \lambda_2 \begin{pmatrix} c_{12} \\ c_{22} \end{pmatrix}
+		\end{cases}, \ \text{т.е.} \ \ A_1\bar{e}_1 = \lambda_1 \bar{e}_1 \ \text{и} \ \ A_1\bar{e}_2 = \lambda_2 \bar{e}_2.
+	\end{align*}
+	Найдём ненулевые $\bar{x}$, для которых существует $\lambda$: $A_1 \bar{x} = \lambda \bar{x}$, т.е. $(A_1 - \lambda E)\bar{x} = \bar{0}$. Это уравнение относительно $\bar{x}$ имеет решение $\Leftrightarrow |A_1 - \lambda E| = 0$ (из курса алгебры). Это квадратное уравнение относительно $\lambda$ (оно называется \bfseries характеристическим многочленом линии второго порядка\mdseries) :\begin{align*}
+	\begin{vmatrix} a_{11} - \lambda&a_{12}\\a_{12}&a_{22}-\lambda \end{vmatrix} = 0 \Leftrightarrow \lambda^2 - (a_{11} + a_{22})\lambda + a_{11}a_{22}-a_{12}^2 = 0\\
+	\mathcal{D} = (a_{11} + a_{22})^2 - 4(a_{11}a_{22}-a_{12}^2) = (a_{11} - a_{22})^2 + 4a_{12}^2 \geqslant 0,
+	\end{align*}
+	то есть уравнение всегда имеет решения.
+
+	Пусть $\lambda_1, \lambda_2$ - корни этого уравнения (возможно, совпадающие). Занумеруем их так: если они разных знаков, то $\lambda_1$ - положительный корень, а если одного знака, то $\lambda_1$ - меньший по модулю корень.\\
+	Из построения $\lambda_1, \lambda_2$ существуют $\bar{a}, \bar{b}$ такие, что $A_1 \bar{a} = \lambda_1 \bar{a}, A_1 \bar{b} = \lambda_2 \bar{b}$ (они называются собственными векторами матрицы $A_1$, соответствующими собственным значениям $\lambda_1$ и $\lambda_2$ соответственно)
+	\subsection{Переход к канонической системе координат}
+	Рассмотрим случаи: \begin{enumerate}
+		\item [\LARGE 1.] {$\lambda_1 \neq \lambda_2$}.
+		
+		Пусть $\bar{a} = \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}, \bar{b} = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}$. Из того, что матрица $A$ симметричная и изначальная система координат прямоугольная, получим:\begin{align*}
+		\lambda_1(\bar{a}, \bar{b}) = (\lambda_1 \bar{a}, \bar{b}) = (A_1 \bar{a}, \bar{b}) = (A_1 \begin{pmatrix} a_1 \\ a_2 \end{pmatrix})^T \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} a_1 & a_2 \end{pmatrix}A_1^T \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} =\\= \begin{pmatrix} a_1 & a_2 \end{pmatrix}A_1 \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = (\bar{a}, A_1 \bar{b}) = (\bar{a}, \lambda_2 \bar{b}) = \lambda_2(\bar{a}, \bar{b})
+		\end{align*}
+		Притом $\lambda_1 \neq \lambda_2$, а значит $(\bar{a}, \bar{b}) = 0 \Leftrightarrow \bar{a} \perp \bar{b}$. Тогда система координат $O\bar{e}_1'\bar{e}_2'$, где $\bar{e}_{1} = \frac{\bar{a}}{|\bar{a}|}, \bar{e}_{2} = \pm\frac{\bar{b}}{|\bar{b}|}$ является прямоугольной, причём $A_1'$ в ней - диагональная (= $\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}$), что мы и хотели получить (можем выбрать знаки так, что ориентация положительна).
+		\item [\LARGE 2.] $\lambda_1 = \lambda_2 \ \ (= \lambda)$. 
+		
+		Найдём $\bar{a}$ такой, что $A_1 \bar{a} = \lambda \bar{a}$. Возьмём ненулевой вектор $\bar{b}$, ортогональный $\bar{a}$. Пусть $\bar{a} = \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}, \bar{b} = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}$. Тогда: \begin{align*}
+		(\bar{a}, \bar{b}) = 0 \Rightarrow (A_1 \bar{a}, \bar{b}) = \lambda(\bar{a}, \bar{b}) = 0
+		\end{align*}
+		С другой стороны, \begin{align*}
+			(A_1 \bar{a}, \bar{b}) = \begin{pmatrix} a_1 & a_2 \end{pmatrix}A_1^T \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} a_1 & a_2 \end{pmatrix}A_1 \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} = (\bar{a}, A_1 \bar{b})\Rightarrow \bar{a} \perp A_1 \bar{b} 
+		\end{align*} 
+		Отсюда $A_1 \bar{b}$ пропорционален $\bar{b}$, т.е. $A_1 \bar{b} = \lambda' \bar{b}$. А так как уже знаем, что такое уравнение имеет решение только при $\lambda' = \lambda$, получаем, что для любого $\bar{b} \perp \bar{a}$ верно $A_1 \bar{b} = \lambda\bar{b}$. Тогда подойдёт система координат $O\bar{e}_1'\bar{e}_2'$, где $\bar{e}_{1} = \frac{\bar{a}}{|\bar{a}|}, \bar{e}_{2} = \pm\frac{\bar{b}}{|\bar{b}|}$ (знак для положительной ориентации).
+	\end{enumerate}
+
+	Итак, для любого случая нашли прямоугольную систему координат $O\bar{e}_1'\bar{e}_2'$, в которой уравнение линии имеет вид: \begin{align*}
+		F'(x', y') = \lambda_1{x'}^2 + \lambda_2{y'}^2 + 2a_1'x' + 2a_2'y' + a_0 = 0
+	\end{align*}
+	Вновь рассмотрим случаи:
+	\begin{enumerate}
+		\item [\LARGE 1.] $\lambda_1 \neq 0$
+		
+		Тогда из нашей нумерации и $\lambda_2 \neq 0$. Можем выделить полные квадраты: $x'' = x' + \frac{a_1'}{\lambda_1}, y'' = y' + \frac{a_2'}{\lambda_2}$ и перейти к системе координат $O''\bar{e}_{1}'\bar{e}_{2}'$, где $O'' = (\frac{a_1'}{\lambda_1}, \frac{a_2'}{\lambda_2})$ в системе координат $O\bar{e}_{1}'\bar{e}_{2}'$.
+		Получим уравнение:\begin{align*}
+			\lambda_1(x' + \frac{a_1'}{\lambda_1})^2 + \lambda_2(y' + \frac{a_2'}{\lambda_2}) + a_0 - \frac{{a_1'}^2}{\lambda_1} - \frac{{a_2'}^2}{\lambda_2} = 0
+		\end{align*}
+		то есть в новейших координатах уравнение имеет вид $\lambda_1{x''}^2 + \lambda_2{y''}^2 = C$.\\
+		Если $\lambda_1 > 0, C>0$, разделим на $C$ и получим уравнение вида \begin{boxedalign*}
+			\frac{{x''}^2}{a^2} \pm \frac{{y''}^2}{b^2} = 1 \text{  - эллипс (если +) или гипербола (если -)}
+		\end{boxedalign*}
+		Если $\lambda_1 > 0, C < 0$, посмотрим на $\lambda_2$:\\
+			Если $\lambda_2 > 0$, разделим на $-C$ и получим \begin{boxedalign*}
+				\frac{{x''}^2}{a^2} \pm \frac{{y''}^2}{b^2} = -1 \text{  - пустое множество (уравнение мнимого эллипса)}
+			\end{boxedalign*}\\
+			Если $\lambda_2 < 0$, разделим на $-C$ и ещё раз заменим координаты, поменяв местами $x$ и $y$ (также надо развернуть одну из осей, чтобы сохранить ориентацию, поэтому матрица перехода имеет вид $\begin{pmatrix} 0&-1 \\ 1&0 \end{pmatrix}$). Получим снова \begin{boxedalign*}
+				\frac{{x'''}^2}{a^2} - \frac{{y'''}^2}{b^2} = 1 \text{  - гипербола}
+			\end{boxedalign*}\\
+		Случаи с $\lambda_1 < 0, C \neq 0$ рассматриваются аналогично - либо гипербола, либо эллипс, либо мнимый эллипс.
+
+		Если $C = 0$ и $\lambda_1, \lambda_2$ одного знака, то уравнение имеет вид (с точностью до домножения на -1):\begin{boxedalign*}
+			\frac{{x''}^2}{a^2} + \frac{{y''}^2}{b^2} = 0 \text{  - одна точка (пара мнимых пересекающихся прямых)}
+		\end{boxedalign*}
+		Если $C = 0$ и $\lambda_1, \lambda_2$ разных знаков, то уравнение имеет вид (с точностью до домножения на -1):\begin{boxedalign*}
+			\frac{{x''}^2}{a^2} - \frac{{y''}^2}{b^2} = 0 \text{  - пара пересекающихся прямых}
+		\end{boxedalign*}
+	\item [\LARGE 2.] $\lambda_1 = 0$.
+	Тогда $\lambda_2 \neq 0$ (иначе уравнение не второго порядка).
+	\begin{align*}
+		F'(x', y') = \lambda_2{y'}^2 + 2a_1'x' + 2a_2'y' + a_0 = 0
+	\end{align*}
+	Если $a_1' \neq 0$, то выделением полного квадрата избавимся от члена с $y$ и сдвигом по оси $Ox$ избавимся от константы: $x'' = x' + \frac{a_0}{2a_1'} - \frac{{a_2'}^2}{2a_1'\lambda_2}, \ y'' = y' + \frac{a_2'}{\lambda_2}$. Получим уравнение $\lambda_2{y''}^2 + 2a_1'x'' = 0$, т.е. $\lambda_2{y''}^2 = -2a_1'x''$. Можем сделать $\lambda_2$ и $a_1'$ разного знака: если одного, заменим $x$ на $-x$  и $y$ на $-y$. Поделив на $\lambda_2$, получим \begin{boxedalign*}
+		{y''}^2 = 2px (p > 0) \text{  - парабола}
+	\end{boxedalign*} 
+	Если $a_1' = 0$, то $F'(x', y') = \lambda_2{y'}^2 + 2a_2'y' + a_0 = 0$, т.е. $\lambda_2{y''}^2 + C = 0$. Поделив на $\lambda_2$, получим один из следующих случаев:
+	\begin{boxedalign*}
+		{y''}^2 + a^2 = 0 \text{  - пара мнимых параллельных прямых}\\
+		{y''}^2 - a^2 = 0 \text{  - пара параллельных прямых}\\
+		{y''}^2 = 0 \text{  - пара совпадающих прямых}
+	\end{boxedalign*}
+	\end{enumerate}
+	\subsection{Классификация линий второго порядка}
+	Сформулируем то, что получили:
+	\begin{theorem} (Классификация линий второго порядка)\\
+		Для любой линии второго порядка прямоугольная система координат (она называется канонической системой координат) такая, что в ней линия имеет один из следующих видов:	
+		\begin{enumerate}
+			\item $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ (эллипс);
+			\item $\frac{x^2}{a^2} + \frac{y^2}{b^2} = -1$ (мнимый эллипс);
+			\item $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 0$ (пара мнимых пересекающихся прямых);
+			\item $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ (гипербола);
+			\item $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 0$ (пара пересекающихся прямых);
+			\item $y^2 = 2px$ (парабола);
+			\item $y^2 - a^2 = 0$ (пара параллельных прямых);
+			\item $y^2 + a^2 = 0$ (пара мнимых параллельных прямых);
+			\item $y^2 = 0$ (пара совпадающих прямых).
+		\end{enumerate}
+	\end{theorem}
+	\section{Ортогональные инварианты}
+	\subsection{Основные инварианты}
+	Пусть линия второго порядка задана в прямоугольной системе координат формулой $F(x, y) = a_{11}x^2 + 2a_{12}xy + a_{22}y^2 + 2a_{1}x + 2a_{2}y + a_{0}, A$ - её большая матрица, $A_1$ - малая матрица.
+	При переходе к новой прямоугольной системе координат:\begin{align*}
+		A' = D^TAD, D = \begin{pNiceMatrix}\Block{2-2}<\Huge>{C}&&x_0\\&&y_0\\0&0&1\end{pNiceMatrix}; \ \ 
+		A_1' = C^TAC \\ \text{(С - матрица перехода, } x_0, y_0 - \text{новое начало отсчёта)}
+	\end{align*}
+	При таком преобразовании не меняются:
+	\begin{enumerate}
+		\item $\Delta = |A|$ (т.к. $|D| = |D^T| = |D^{-1}| = \pm 1$);
+		\item $\delta = |A_1|$ (аналогично);
+		\item $|A_1 - \lambda E|$;
+		\item $S = a_{11}+ a_{22}$. (нетрудно проверить)
+	\end{enumerate}
+	Заметим, что инварианты изменяются при домножении уравнения на число, но не меняются знаки $\delta$ и $\Delta\cdot S$.
+	\subsection{Классификация}
+	Запишем большие матрицы канонических уравнений:
+	\begin{enumerate}
+		\item $\begin{pmatrix} \frac{1}{a^2}&0&0 \\ 0&\frac{1}{b^2}&0 \\ 0&0&-1 \end{pmatrix}$ (эллипс) - $\delta > 0, \Delta S > 0$;
+		\item $\begin{pmatrix} \frac{1}{a^2}&0&0 \\ 0&\frac{1}{b^2}&0 \\ 0&0&1 \end{pmatrix}$ (мнимый эллипс) - $\delta > 0, \Delta S < 0$;
+		\item $\begin{pmatrix} \frac{1}{a^2}&0&0 \\ 0&\frac{1}{b^2}&0 \\ 0&0&0 \end{pmatrix}$ (пара мнимых пересекающихся прямых) - $\delta > 0, \Delta S = 0$;
+		\item $\begin{pmatrix} \frac{1}{a^2}&0&0 \\ 0&-\frac{1}{b^2}&0 \\ 0&0&-1 \end{pmatrix}$ (гипербола) - $\delta < 0, \Delta S \neq 0$;
+		\item $\begin{pmatrix} \frac{1}{a^2}&0&0 \\ 0&-\frac{1}{b^2}&0 \\ 0&0&0 \end{pmatrix}$ (пара пересекающихся прямых) - $\delta < 0, \Delta S = 0$;
+		\item $\begin{pmatrix} 0&0&-2p \\ 0&1&0 \\ -2p&0&0 \end{pmatrix}$ (парабола) - $\delta = 0, \Delta S \neq 0$;
+		\item $\begin{pmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&-a^2 \end{pmatrix}$ (пара параллельных прямых) - $\delta = \Delta = 0$;
+		\item $\begin{pmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&a^2 \end{pmatrix}$ (пара мнимых параллельных прямых) - $\delta = \Delta = 0$;
+		\item $\begin{pmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&0 \end{pmatrix}$ (пара совпадающих прямых) - $\delta = \Delta = 0$;
+	\end{enumerate}
+	
+	Итак, разберём случаи знаков ортогональных инвариантов:
+	\begin{enumerate}
+		\item [\LARGE 1.] $\delta \neq 0$ - центральный случай (кривые 1-5):
+		$\delta > 0 \Rightarrow$ либо эллипс ($\Delta S < 0$), либо мнимый эллипс ($\Delta S > 0$), либо пара мнимых пересекающихся прямых ($\Delta S = 0$);\\
+		$\delta < 0 \Rightarrow$ либо гипербола ($\Delta \neq 0$), либо пара пересекающихся прямых ($\Delta = 0$); 
+		\item [\LARGE 2.] $\delta = 0$ - параболический случай (кривые 6-9):
+		$\Delta \neq 0$ - парабола;
+		$\Delta = 0$ - кривые 7-9.
+	\end{enumerate} 
+	\subsection{Семиинвариант (нет в б., но полезно)}
+	Для последнего случая необходим семиинвариант: $K = \begin{vmatrix} a_{22}&a_2 \\ a_2&a_0 \end{vmatrix} + \begin{vmatrix} a_{11}&a_1 \\ a_1&a_0 \end{vmatrix}$.
+	\begin{subtheorem}
+		$K$ не изменяется при замене базиса (без сдвига)
+	\end{subtheorem}
+	\begin{proof}
+		\begin{align*}
+			K = (a_{11} + a_{22})a_0 - a_1^2 - a_2^2 = S\cdot a_0 - |\bar{a}|^2
+		\end{align*}
+		При переходе к новому ортонормированному базису $a_0$ не изменяется (очев.), $S$ не изменяется (инвариант), а $\bar{a}$ умножается на транспонированную матрицу перехода, которую можно представить в виде матрицы поворота на некоторый угол (см. Билет 23), т.е. $|\bar{a}|$ не изменяется. 
+	\end{proof}
+	\begin{subtheorem}
+		В случае $\delta = \Delta = 0 \ \ K$ не изменяется и при сдвиге.
+	\end{subtheorem}
+	\begin{proof}
+		Пусть уравнение кривой $a_{11}x^2 + 2a_{12}xy + a_{22}y^2 + 2a_{1}x + 2a_{2}y + a_{0}$ задана в прямоугольной системе координат. Доказали, что существует прямоугольная система координат с тем же началом, в которой линия задаётся уравнением $\lambda_1{x'}^2 + \lambda_2{y'}^2 + a_{1}'x' + a_{2}'y' + a_{0}$, и притом $K$ не изменяется при этом переходе. Из условия $\delta = 0$ следует, что $\lambda_1\lambda_2 = 0$. Пусть $\lambda_1 = 0$ (в силу нашей нумерации). Тогда большая матрица имеет вид $\begin{pmatrix}0&0&a_{1}'\\0&\lambda_2&a_{2}'\\ a_{1}'&a_2'&a_{0}\end{pmatrix}$. Из условия $\Delta = 0$ имеем $\lambda_2{a_1'}^2 = 0$. Причём знаем, что $\lambda_2 \neq 0$ (иначе линия не является линией второго порядка), то есть $a_1' = 0$. Тогда подстановкой получим, что $K = Sa_0 - |\bar{a}|^2 = \lambda_2a_0 - {a_2'}^2$. Заменим начало координат: $x' = x'' + x_0, y' = y'' + y_0$. Подставим в уравнение линии: \begin{align*}\lambda_2(y'' + y_0)^2 + 2a_{2}'(y'' + y_0) + a_{0} = \lambda_2{y''}^2 + 2(\lambda_2y_0 +a_{2}')y'' + \lambda_2y_0^2 +2a_2'y_0 + a_{0} \Rightarrow \\K' = \lambda_2(\lambda_2y_0^2 +2a_2'y_0 + a_{0}) - (\lambda_2y_0 +a_{2}')^2 = \\\lambda_2^2y_0^2 +2\lambda_2a_2'y_0 + \lambda_2a_{0} - \lambda_2^2y_0^2 +2\lambda_2a_2'y_0 + {a_2'}^2 = \lambda_2a_0 - {a_2'}^2 = K
+		\end{align*}
+		Отсюда $K' = K$, ч.т.д.
+	\end{proof}
+	Тогда в случае $\delta = \Delta = 0$:
+	\begin{enumerate}
+		\item $\begin{pmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&-a^2 \end{pmatrix}$ (пара параллельных прямых) - $K < 0$;
+		\item $\begin{pmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&a^2 \end{pmatrix}$ (пара мнимых параллельных прямых) - $K>0$;
+		\item $\begin{pmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&0 \end{pmatrix}$ (пара совпадающих прямых) - $K = 0$;
+	\end{enumerate}
+	\subsection{Полная классификация}
+	Отсюда получаем во-первых единственность канонического уравнения линии второго порядка (из инвариантности однозначно определяющих её величин), а также алгоритм определения линии по значениям инвариантов в её большой матрице: \newpage
+	\begin{table}[htbp]
+		\begin{tabular}{@{}ccccccccc@{}}
+			\toprule
+		\multicolumn{5}{c}{$\delta \neq 0$} & \multicolumn{4}{c}{$\delta = 0$} \\ \cmidrule(lr){1-5}\cmidrule(lr){6-9}
+		\multicolumn{3}{c}{$\delta > 0$} & \multicolumn{2}{c}{$\delta \neq 0$} & $\Delta \neq 0$ & \multicolumn{3}{c}{$\Delta = 0$} \\ \cmidrule(lr){1-3}\cmidrule(lr){4-5}\cmidrule{7-9}
+		$\Delta S < 0$ & $\Delta S > 0$ & $\Delta S = 0$ & $\Delta \neq 0$ & $\Delta = 0$ &  & $K < 0$ & $K > 0$ & $K = 0$ \\ \midrule
+		эллипс&мн. эллипс&мн. $\times$&гипербола&$\times$&парабола&$\parallel$&мн. $\parallel$& совп. $|$ \\\bottomrule
+		\end{tabular}
+	\end{table} 
+	\bfseries Мораль в том, что пупупу...\mdseries
 \end{document}
