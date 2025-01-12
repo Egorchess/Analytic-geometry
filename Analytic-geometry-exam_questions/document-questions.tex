@@ -1322,8 +1322,8 @@
 	\end{remark}
 	\section{Сопряжённые направления}
 	\subsection{Определение}
-	Попробуем найти произвольный базис (не обязательно ортогональный), в котором матрица $A_1$ линии второго порядка станет диагональной. Пусть $\bar{e}_1 = \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix}, \bar{e}_2 = \begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix}$ - координаты новых базисных векторов в старом базисе. Их новые координаты - $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ и $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Так как $A_1' = \begin{pmatrix}a_{11}'&a_{12}'\\a_{12}'&a_{22}'\end{pmatrix}$ - диагональная, $a_{22}' = 0$. Выразим $a_{22}'$ через малую матрицу $: a_{22}' = \begin{pmatrix} 1 & 0 \end{pmatrix}A_1'\begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Также если $C$ - матрица перехода к новому базису, то известны равенства: $A_1' = C^TA_1C, \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix} = C \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix} = C \begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Отсюда: \begin{align*}
-		a_{22}' = \begin{pmatrix} 1 & 0 \end{pmatrix}A_1'\begin{pmatrix} 0 \\ 1 \end{pmatrix} = a_{22}' = \begin{pmatrix} 1 & 0 \end{pmatrix}C^TA_1C\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \alpha_1 & \beta_1 \end{pmatrix}A_1\begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix}
+	Попробуем найти произвольный базис (не обязательно ортогональный), в котором матрица $A_1$ линии второго порядка станет диагональной. Пусть $\bar{e}_1 = \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix}, \bar{e}_2 = \begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix}$ - координаты новых базисных векторов в старом базисе. Их новые координаты - $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ и $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Так как $A_1' = \begin{pmatrix}a_{11}'&a_{12}'\\a_{12}'&a_{22}'\end{pmatrix}$ - диагональная, $a_{12}' = 0$. Выразим $a_{12}'$ через малую матрицу $: a_{12}' = \begin{pmatrix} 1 & 0 \end{pmatrix}A_1'\begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Также если $C$ - матрица перехода к новому базису, то известны равенства: $A_1' = C^TA_1C, \begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix} = C \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix} = C \begin{pmatrix} 0 \\ 1 \end{pmatrix}$. Отсюда: \begin{align*}
+		a_{12}' = \begin{pmatrix} 1 & 0 \end{pmatrix}A_1'\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \end{pmatrix}C^TA_1C\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \alpha_1 & \beta_1 \end{pmatrix}A_1\begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix}
 	\end{align*}
 	Отсюда $A_1'$ будет диагональной в случае $\begin{pmatrix} \alpha_1 & \beta_1 \end{pmatrix}A_1\begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix} = 0$.
 	\begin{definition}
@@ -1370,5 +1370,10 @@
 		Из следствия видно, что прямая может содержаться целиком только в линии, представляющей собой пару пересекающихся прямых, пару параллельных прямых или пару совпадающих прямых. Такие линии называются распадающимися, так как задающие их многочлены $F(x, y)$ распадаются в произведение двух линейных функций.
 		(это свойство очевидно для этих линий в каноническом виде, а далее можем проделать обратные к приведению к каноническому виду операции, чтобы получить тот же результат для произвольного вида). 
 	\end{definition}
+	\section{Диаметры}
+	\subsection{Определение}
+	Вернёмся к пересечению 
+	\subsection{Свойства}
+	\subsection{Сопряжённые диаметры}
 	\bfseries Мораль в том, что пупупу...\mdseries
 \end{document}
