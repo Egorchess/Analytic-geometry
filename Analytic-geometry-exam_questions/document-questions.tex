@@ -739,7 +739,7 @@
 			\item Площадь квадрата со стороной 1 равна 1;
 			\item Площади конгруэнтных фигур равны;
 			\item Если $\Phi_{1}, \Phi_{2}$ - фигуры, $\exists \ S_{\Phi_{1}}, S_{\Phi_{2}}$ и $\Phi_{1} \cap \Phi_{2} = \varnothing$, то $\exists S_{\Phi_{1}\cup\Phi_{2}} = S_{\Phi_{1}} + S_{\Phi_{2}}$; 
-			\item Если $\Phi$ - фигура и существуют такие последовательности фигур $\{\phi_{n}\}_{n=1}^{\infty}$ и $\{\Phi_{n}\}_{n=1}^{\infty}$, что $\phi_{n} \subset \phi_{n+1} \subset \Phi \subset \Phi_{n+1} \subset \Phi{n} \ \forall n \geqslant 1$, причём $\lim \limits_{n\rightarrow\infty}S_{\phi_{n}}$ и $\lim \limits_{n\rightarrow\infty}S_{\Phi_{n}}$ существуют и равны, то $S_{\Phi} = \lim \limits_{n\rightarrow\infty}S_{\phi_{n}}$ = $\lim \limits_{n\rightarrow\infty}S_{\Phi_{n}}$
+			\item Если $\Phi$ - фигура и существуют такие последовательности фигур $\{\phi_{n}\}_{n=1}^{\infty}$ и $\{\Phi_{n}\}_{n=1}^{\infty}$, что $\phi_{n} \subset \phi_{n+1} \subset \Phi \subset \Phi_{n+1} \subset \Phi_{n} \ \forall n \geqslant 1$, причём $\lim \limits_{n\rightarrow\infty}S_{\phi_{n}}$ и $\lim \limits_{n\rightarrow\infty}S_{\Phi_{n}}$ существуют и равны, то $S_{\Phi} = \lim \limits_{n\rightarrow\infty}S_{\phi_{n}}$ = $\lim \limits_{n\rightarrow\infty}S_{\Phi_{n}}$
 		\end{enumerate} 
 	\end{definition}
 	\begin{consequense}(Площади некоторых фигур:)
@@ -767,7 +767,7 @@
 		Нам уже известно, что $S_{\bar{a},\bar{b}} = |\bar{a}||\bar{b}|\sin\phi$ (из выражения высоты параллелограмма через угол). В прямоугольной системе координат:\begin{align*}
 			S_{\bar{a},\bar{b}}^2 = |\bar{a}|^2|\bar{b}|^2\sin^2\phi = |\bar{a}|^2|\bar{b}|^2(1 - \cos^2\phi) = |\bar{a}|^2|\bar{b}|^2 - (\bar{a}, \bar{b})^2
 		\end{align*}
-		Если $\bar{a} = \begin{pmatrix} x_1 \\ y_1 \end{pmatrix}, \ \bar{b} = \begin{pmatrix} x_2 \\ y_2 \end{pmatrix}$, то $S_{\bar{a},\bar{b}}^2 = (x_1^2 + y_1^2)(x_2^2 + y_2^2) - (x_1x_2 + y_1y_2) = (x_1y_2 - x_2y_1)^2 \Rightarrow$ \begin{boxedalign*}S_{\bar{a},\bar{b}} = |\begin{vmatrix} x_1&y_1\\x_2&y_2 \end{vmatrix}|\end{boxedalign*}
+		Если $\bar{a} = \begin{pmatrix} x_1 \\ y_1 \end{pmatrix}, \ \bar{b} = \begin{pmatrix} x_2 \\ y_2 \end{pmatrix}$, то $S_{\bar{a},\bar{b}}^2 = (x_1^2 + y_1^2)(x_2^2 + y_2^2) - (x_1x_2 + y_1y_2)^2 = (x_1y_2 - x_2y_1)^2 \Rightarrow$ \begin{boxedalign*}S_{\bar{a},\bar{b}} = |\begin{vmatrix} x_1&y_1\\x_2&y_2 \end{vmatrix}|\end{boxedalign*}
 		При этом определитель $>0 \Leftrightarrow \bar{a}, \bar{b}$ одноимённа с базисом.
 	\end{formula}
 	\subsection{Ориентированная площадь}
@@ -862,7 +862,7 @@
 	\end{proof}
 	\section{Прямая в пространстве}
 	\begin{formulas}(Уравнения прямой)
-		Пусть $l$ - прямая в пространстве: $l = \{X_0 + t\bar{c}\}$, где $X_0$ - точка прямой, $\bar{c}$ - её направляющий вектор. Если $X_0=\begin{pmatrix}x_{0}\\y_{0}\\z_0\end{pmatrix},\bar{v}=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}$, то координаты точек на прямой выражаются следующим образом: (\bfseries параметрические уравнения прямой\mdseries) \begin{boxedalign*}X \in l: \begin{cases}x = x_{0} + tc_1 \\ y = y_{0} + tc_2 \\ z = z_0 + tc_3\end{cases}\end{boxedalign*}\\
+		Пусть $l$ - прямая в пространстве: $l = \{X_0 + t\bar{c}\}$, где $X_0$ - точка прямой, $\bar{c}$ - её направляющий вектор. Если $X_0=\begin{pmatrix}x_{0}\\y_{0}\\z_0\end{pmatrix},\bar{c}=\begin{pmatrix}c_1\\c_2\\c_3\end{pmatrix}$, то координаты точек на прямой выражаются следующим образом: (\bfseries параметрические уравнения прямой\mdseries) \begin{boxedalign*}X \in l: \begin{cases}x = x_{0} + tc_1 \\ y = y_{0} + tc_2 \\ z = z_0 + tc_3\end{cases}\end{boxedalign*}\\
 		Выразим $t$ из всех уравнений и приравняем - получим \bfseries каноническое уравнение прямой\mdseries : \begin{boxedalign*}\frac{x-x_{0}}{c_1} = \frac{y-y_{0}}{c_2} = \frac{z-z_0}{c_3}\end{boxedalign*}\\
 		Если известно, что прямой принадлежат $X_0 = (x_{0}, y_{0}, z_0), X_1 = (x_{1}, y_{1}, z_1)$, то $\overrightarrow{X_0X_1} = \begin{pmatrix}x_{1} - x_{0}\\y_{1} - y_{0}\\z_1-z_0\end{pmatrix}$ - направляющий вектор, т.е. каноническое уравнение имеет следующий вид (\bfseries уравнение прямой по двум точкам\mdseries)\begin{boxedalign*}\frac{x-x_{0}}{x_{1}-x_{0}} = \frac{y-y_{0}}{y_{1}-y_{0}} = \frac{z-z_{0}}{z_{1}-z_{0}}\end{boxedalign*}
 	\end{formulas}
@@ -913,7 +913,7 @@
 		Пусть $X_0 = (x_0, y_0, z_0), X_1 = (x_1, y_1, z_1), X_0, X_1 \in \pi \Rightarrow A(x_1-x_0) + B(y_1-y_0) + C(z_1 - z_0) = 0$ (вектор $\overrightarrow{X_0X_1} \parallel \pi$). Данное выражение также означает, что $\begin{pmatrix} x_1-x_0&y_1-y_0&z_1-z_0\end{pmatrix}\begin{pmatrix} A  \\ B \\ C \end{pmatrix} = 0 \Rightarrow \bar{n}\perp\overrightarrow{X_0X_1}$.
 	\end{proof}
 	\begin{consequense}
-		Зная вектор нормали, направляющие векторы плоскости можно найти как любые два неколлинеарных вектора, ортогональных нормали.
+		Зная вектор нормали, за направляющие векторы плоскости можно взять любые два неколлинеарных вектора, ортогональных нормали.
 	\end{consequense}
 	\subsection{Расстояние от точки до плоскости}
 	\begin{formula}(Расстояние от точки до плоскости)\\
@@ -1061,7 +1061,7 @@
 	\begin{align*}
 		F'(x', y') = \begin{pmatrix} x'&y' \end{pmatrix}C^T \cdot A_1 \cdot C\begin{pmatrix} x'\\ y' \end{pmatrix} + 2\begin{pmatrix} x'&y' \end{pmatrix}C^T\begin{pmatrix}a_1\\a_2\end{pmatrix} + a_0 = \\ = \begin{pmatrix} x'&y' \end{pmatrix}\cdot A_1' \cdot\begin{pmatrix} x'\\ y' \end{pmatrix} + 2\begin{pmatrix} x'&y' \end{pmatrix}\begin{pmatrix}a_1'\\a_2'\end{pmatrix} + a_0 \ \ \ \ \ \ \ \ \ \ \ \ \,
 	\end{align*}
-	где $A_1' = C^TAC$ и $\begin{pmatrix}a_1'\\a_2'\end{pmatrix} = C^T\begin{pmatrix}a_1\\a_2\end{pmatrix}$.\\
+	где $A_1' = C^TA_1C$ и $\begin{pmatrix}a_1'\\a_2'\end{pmatrix} = C^T\begin{pmatrix}a_1\\a_2\end{pmatrix}$.\\
 	Далее прямой подсчет показывает, что большая матрица изменяется так: \begin{align*}
 		A' = \begin{pNiceMatrix}\Block{2-2}<\Huge>{C}&&0\\&&0\\0&0&1\end{pNiceMatrix}^T \cdot A \cdot \begin{pNiceMatrix}\Block{2-2}<\Huge>{C}&&0\\&&0\\0&0&1\end{pNiceMatrix}
 	\end{align*} 
@@ -1071,7 +1071,7 @@
 	Подставляя в выражение $F(x, y)$, получим: \begin{align*}
 		F'(x, y) = \begin{pmatrix}x'&y'&1\end{pmatrix}D^TAD\begin{pmatrix} x' \\ y' \\ 1 \end{pmatrix}, \text{т.е.}\ \  A' = D^TAD.
 	\end{align*}
-	Несложно проверить, что при такой замене также верно равенство $A_1' = C^TAC$.
+	Несложно проверить, что при такой замене также верно равенство $\\A_1' = C^TA_1C$.
 	\section{Канонические уравнения линий второго порядка}
 	\subsection{Собственные векторы и значения}
 	Итак, найдём необходимую матрицу $C$. Она должна являться матрицей перехода от одного ортонормированного базиса к другому, т.е. она по определению ортогональна. Таким образом, необходимо найти такие векторы $\bar{e}_{1}', \bar{e}_{2}'$ (новый базис), что: \begin{enumerate}
@@ -1566,7 +1566,7 @@
 	Если для точки $(x_1, y_1 \in L)$ это условие не выполнено, то $l_1$ пересекает $L$ в двух точках.
 	Предположим, что для точки $(x_1, y_1)$ условие выполнено. Тогда прямая $\lambda_1\alpha x + \lambda_2\beta y = 0$ уже имеет две точки пересечения с $L$ - $(x_0, y_0)$ и $(x_1, y_1)$. Тогда для любой точки $(x_2, y_2) \in L, \ |x_0 - x_2| < |x_0 - x_1|$ это же условие выполняться не может, т.к. прямая не может иметь более двух общих точек с $L$. Сформулируем доказанное утверждение:
 	\begin{subtheorem}
-		ПУсть $L$ - эллипс или гипербола, $(x_0, y_0)\in L$. Тогда $\exists \epsilon > 0$ такой, что для любой точки $(x_1, y_1) \in L: d((x_0, y_0), (x_1, y_1)) < \epsilon$ прямая, проходящая через $(x_1, y_1)$ и параллельная касательной в точке $(x_0, y_0)$, пересекает $L$ в двух точках.
+		Пусть $L$ - эллипс или гипербола, $(x_0, y_0)\in L$. Тогда $\exists \epsilon > 0$ такой, что для любой точки $(x_1, y_1) \in L: d((x_0, y_0), (x_1, y_1)) < \epsilon$ прямая, проходящая через $(x_1, y_1)$ и параллельная касательной в точке $(x_0, y_0)$, пересекает $L$ в двух точках.
 	\end{subtheorem} 
 	Докажем аналогичные утвержения для параболы.
 	\begin{subtheorem}
@@ -1602,6 +1602,64 @@
 		\end{align*}
 		Коэффициент перед $t^2$ не равен нулю, т.к. $(x_0, y_0)$ - не центр, а свободный член равен нулю, т.к. $(x_0, y_0)\in L$. Тогда точка пересечения единственна только в случае, когда коэффициент перед $t$ нулевой, а из этого $$\begin{pmatrix} \alpha & \beta \end{pmatrix}\begin{pmatrix} a_{11}x_0 + a_{12}y_0 + a_1 \\ a_{12}x_0 + a_{22}y_0 + a_2 \end{pmatrix} = 0 \Rightarrow \begin{pmatrix} \alpha \\ \beta \end{pmatrix} \parallel \begin{pmatrix} -a_{12}x_0 - a_{22}y_0 - a_2 \\ a_{11}x_0 + a_{12}y_0 + a_1 \end{pmatrix}$$
 		Тогда $l$ имеет с касательной к $L$ в $(x_0, y_0)$ общую точку и у них совпадают направления, а значит, эти прямые совпадают, т.е. $l$ - касательная к $L$ в точке $(x_0, y_0)$.
+	\end{proof}
+	\section{Особые и главные направления}
+	\subsection{Особые направления}
+	\begin{definition}
+		Направление $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ называется особым для данной линии второго порядка, если относительно неё оно сопряжено любому направлению. 
+	\end{definition}
+	\begin{remark}
+		Так как сопряжённость не зависит от выбора системы координат, направление является или не является особым вне зависимости от системы координат.
+	\end{remark}
+	\begin{subtheorem}
+		У линии $L$ есть особое направление $\Leftrightarrow L$ параболического типа, причём в этом случае в канонической системе координат $L$ особым является направление $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ 
+	\end{subtheorem}
+	\begin{proof}
+		Запишем условие, что направление $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ особое, в канонической системе координат:
+		$$\begin{pmatrix} \alpha & \beta \end{pmatrix}\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix}, \ \forall x, y \in \mathbb{R}$$ 
+		Подставив $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ и $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$, получим $\begin{cases}\lambda_1\alpha = 0\\\lambda_2\beta = 0\end{cases}$. Из этого следует, что $\lambda_1 = \beta = 0$, так как $\lambda_2 \neq 0$ из нумерации, поэтому $\beta = 0$, а тогда $\alpha \neq 0$, иначе $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ - не направление.
+	\end{proof}
+	\begin{remark}
+		В параболическом случае простейшее уравнение линии имеет ось симметрии $y = 0$, поэтому особое направление всегда параллельно оси симметрии линии (одной из них, если их несколько).
+	\end{remark}
+	\begin{subtheorem}
+		В параболическом случае любое направление, сопряжённое\\неасимптотическому - особое.
+	\end{subtheorem}
+	\begin{proof}
+		Пусть $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ - произвольное неасимптотическое направление для линии параболического типа, заданной в канонической с.к. Тогда $\beta \neq 0$ (иначе асимптотическое). Пусть $\begin{pmatrix} \alpha' \\ \beta' \end{pmatrix}$ - любое сопряжённое ему направление. Тогда $$\begin{pmatrix} \alpha & \beta  \end{pmatrix}\begin{pmatrix} 0&0 \\ 0&\lambda_2 \end{pmatrix}\begin{pmatrix} \alpha' \\ \beta' \end{pmatrix} = \beta\beta'\lambda_2 = 0$$
+	Отсюда очевидно, что $\beta' = 0$, т.е. $\begin{pmatrix} \alpha' \\ \beta' \end{pmatrix}$ - особое.
+	\end{proof}
+	\begin{consequense}
+		В параболическом случае все диаметры линии имеют особое направление.
+	\end{consequense}
+	\begin{remark}
+		В случае параболы уравнение линии имеет вид $\lambda_2y^2+2cx = 0$, и уравнение диаметра, сопряжённого неасимптотическому направлению $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$, имеет вид $\beta\lambda_2y + \alpha c = 0$, причём единственное условие на $\alpha, \beta - \beta \neq 0$. Отсюда можно сделать вывод, что все прямые, параллельные оси симметрии параболы, являются её диаметрами.
+
+		Если же линия параболического типа, но не является параболой, то уравнение линии имеет вид $\lambda_2y^2+ c = 0$, и уравнение диаметра, сопряжённого неасимптотическому направлению $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$, имеет вид $\beta\lambda_2y = 0$. Отсюда видно, что линия имеет единственный диаметр, в канонической с.к. заданный уравнением $y = 0$.
+	\end{remark}
+	Найдём особое направление в произвольной системе координат. Оно опреелено условием $$\begin{pmatrix} \alpha & \beta \end{pmatrix}\begin{pmatrix}a_{11}&a_{12}\\a_{12}&a_{22}\end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} \ \forall x, y\in \mathbb{R}.$$
+	Подставив $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ и $\begin{pmatrix} 0 \\ 1 \end{pmatrix}$, получим $\begin{cases}a_{11}\alpha + a_{12}\beta= 0\\a_{12}\alpha + a_{22}\beta = 0\end{cases} \Rightarrow A_1 \begin{pmatrix} \alpha \\  \beta \end{pmatrix}$\\
+	Отсюда видно, что вектор $\begin{pmatrix} \alpha \\\beta  \end{pmatrix}$ является собственным вектором $A_1$ с собственным значением 0 $\Rightarrow \lambda_1 = 0 \Rightarrow$ нормированный вектор с направлением $\begin{pmatrix} \alpha \\\beta  \end{pmatrix}$ является первым базисным вектором канонической с.к. (очевидно, что он всегда определён однозначно)
+	\subsection{Главные направления}
+	\begin{definition}
+		Направление $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ называется особым для данной линии второго порядка, если относительно этой линии оно сопряжено ортогональному ему направлению. 
+	\end{definition}
+	\begin{definition}
+		Диаметр с главным направлением называется главным диаметром.
+	\end{definition}
+	\begin{remark}
+		Направление является главным вне зависимости от системы координат, так как сопряжение и ортогональность не зависят от системы координат (прямоугольной, раз пользуемся ортогональностью).
+	\end{remark}
+	\begin{remark}
+		Главный диаметр является осью симметрии линии, т.к. он делит пополам все перпендикулярные ему хорды. Если у линии есть центр, то главные диаметры будет являться осями канонической с.к.
+	\end{remark}
+	\begin{subtheorem}
+		Если у линии есть главное направление, то оно является направлением оси координат в канонической с.к. (одной из них, если их много).
+	\end{subtheorem}
+	\begin{proof}
+		В канонической системе координат: если $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ - главное направление, то $\begin{pmatrix} -\beta \\ \alpha \end{pmatrix}$ - ему ортогональное и сопряжённое, то есть: $$\begin{pmatrix} \alpha & \beta \end{pmatrix}\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}\begin{pmatrix} -\beta \\ \alpha \end{pmatrix} = -\lambda_1\alpha\beta + \lambda_2\alpha\beta = \alpha\beta(\lambda_2-\lambda_1) = 0$$
+	Если $\lambda_1 \neq \lambda_2$, то либо $\alpha = 0$, либо $\beta = 0$, а значит векторы $\begin{pmatrix} \alpha & \beta \end{pmatrix}$ и $\begin{pmatrix} -\beta \\ \alpha \end{pmatrix}$ параллельны базисным векторам канонической с.к.\\
+	Если $\lambda_1 = \lambda_2$, то $\alpha$ и $\beta$ могут быть любыми. Однако в этом случае $\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix} = \begin{pmatrix} \lambda&0 \\ 0&\lambda \end{pmatrix}$, и умножение вектора на эту матрицу слева равносильно умножению этого вектора на $\lambda$. Тогда любой вектор является собственным для матрицы $\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}$, а значит можем перейти к новой канонической с.к., где базисные векторы сонаправлены с $\begin{pmatrix} \alpha & \beta \end{pmatrix}$ и $\begin{pmatrix} -\beta \\ \alpha \end{pmatrix}$.
 	\end{proof}
 	\bfseries Мораль в том, что пупупу...\mdseries
 \end{document}
