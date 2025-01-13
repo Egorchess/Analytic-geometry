@@ -657,7 +657,7 @@
 		\end{enumerate}
 	\end{theorem}
 	\begin{proof}(в конспекте указан "прямой подсчёт")\\
-		Для начала заметим равносильность утверждений $\circled{4}, \circled{5}, \circled{6}$: $\circled{4} \Leftrightarrow \circled{5}$ (получаются друг из друга транспонированием обоих частей равенства), а $\circled{6}$ равносильно им по определению обратной матрицы.\\
+		Для начала заметим равносильность утверждений $\circled{4}, \circled{5}, \circled{6}$: $\circled{4} \Leftrightarrow \circled{6} \Leftrightarrow \circled{5}$ по определению обратной матрицы, т.к. из 4 и 5 очевидно следует обратимость матрицы $C$.\\
 		$\circled{1} \Rightarrow \circled{2}$: Столбцы матрицы C - координаты векторов ортонормированного базиса $E$ в другом ортонормированном базисе $E'$. Рассмотрим скалярное произведение $(\bar{e}_{i}', \bar{e}_{j}')$: с одной стороны оно равно $\sum \limits_{k=1}^{n} c_{ki}c_{kj}$ (так как базис $E$ ортонормирован, можем применять формулу с матрицей Грама, причём $G = E$ из ортонормированности $E_{1}$), а с другой стороны - $\delta_{ij}$ (из ортонормированности $E_{1}$).\\
 		$\circled{1} \Leftarrow \circled{2}$: Из $\circled{2}$ знаем, что векторы с координатами в столбцах попарно ортогональны и имеют длину 1 в базисе, в котором записаны эти координаты. Значит, применив такое преобразование к векторам ортонормированного базиса, получим также попарно ортогональные векторы длины 1, т.е. $C$ - ортогональная.\\
 		$\circled{2} \Leftrightarrow \circled{5}$: Оба условия равносильны тому, что элемент $C^T C$ на позиции $ij$ равен $\delta_{ij}$.\\
@@ -1525,12 +1525,83 @@
 	\end{enumerate}
 
 	\subsection{Случай эллипса, гиперболы и параболы}
-	Будет в ближайшем обновлении, а сейчас я иду спать, потому что обрабатывать информацию пока не способен.\\
-	Если вы дошли до этого места, спасибо, что цените мой труд)
+	Рассмотрим подробнее касательные в случае эллипса, гиперболы и параболы. Для этого докажем несколько вспомогательных утверждений.
+	\begin{subtheorem}
+		Пусть $L$ - эллипс, $(x_0, y_0) \in L$. Тогда на $L$ существуют точки, сколь угодно близкие к $(x_0, y_0)$. Более того, выполнено хотя бы одно из следующих условий:
+		\begin{enumerate}
+			\item $\forall \epsilon_0 > 0 \ \exists \epsilon_1: 0 < \epsilon_1 < \epsilon_0$ такой, что $\forall \epsilon \in (0, \epsilon_1) \ \exists \delta(\epsilon): (x_0 + \epsilon, y_0 + \delta(\epsilon)) \in L$, причём $\delta(\epsilon) \rightarrow 0$ при $\epsilon \rightarrow 0$;
+			\item $\forall \epsilon_0 < 0 \ \exists \epsilon_1: \epsilon_0 < \epsilon_1 < 0$ такой, что $\forall \epsilon \in (\epsilon_1, 0) \ \exists \delta(\epsilon): (x_0 + \epsilon, y_0 + \delta(\epsilon)) \in L$, причём $\delta(\epsilon) \rightarrow 0$ при $\epsilon \rightarrow 0$;
+		\end{enumerate} 
+		(Проще говоря, либо справа, либо слева от $x_0$ есть сколь угодно малая полуокрестность, для любого $\epsilon$ из которой есть точка $(x, y)$, где $x_0 + \epsilon$ принадлежащая $L$, причём при $x \rightarrow x_0 \ \ y \rightarrow y_0$)
+	\end{subtheorem}
+	\begin{proof}
+		Рассмотрим эллипс в канонической с.к., т.е. его уравнение имеет простейший вид $\lambda_1x^2+\lambda_2y^2+c = 0$. Пусть для определённости $\lambda_1, \lambda_2 > 0, c < 0$ (иначе домножим на $-1$). Запишем условие на $\delta(\epsilon)$, что точка $(x_0 + \epsilon, y_0 + \delta(\epsilon))$ принадлежит $L$: $$\lambda_1(x_0 + \epsilon)^2+\lambda_2(y_0 + \delta(\epsilon))^2+c = 0\Rightarrow$$ $$\lambda_2\cdot\delta(\epsilon)^2 + 2\lambda_2y_0\cdot\delta(\epsilon) + \lambda_1(x_0 + \epsilon)^2 + \lambda_2y_0^2 + c = 0$$
+		Получили квадратное уравнение относительно $\delta(\epsilon) \ (\lambda_2 \neq 0)$. Обозначим свободный член за $A$. Заметим, что $A \rightarrow 0$ при $\epsilon \rightarrow 0$, так как $\lambda_1x_0^2+\lambda_2y^2+c = 0$. Запишем дискриминант полученного квадратного уравнения: $$D = 4\lambda_2^2y_0^2 - 4\lambda_2\cdot A \ \Rightarrow D \rightarrow 4\lambda_2^2y_0^2, \ \ \epsilon \rightarrow 0$$
+		Если $y_0 \neq 0$, то для достаточно малых (по модулю) $\epsilon$ выполнено $D \geqslant 0$, поэтому корни $\delta(\epsilon)$ существуют и при $\epsilon \rightarrow 0$ один из них стремится к 0, т.к. $A \rightarrow 0$\\
+		Если же $y_0 = 0$, то $D = -4\lambda_1\lambda_2(x_0 + \epsilon)^2 - 4\lambda_2c$, и тогда $$D \geqslant 0 \Leftrightarrow \lambda_1(x_0 + \epsilon)^2 \leqslant -c \Leftrightarrow |x_0 + \epsilon| < \sqrt{\frac{-c}{\lambda_1}}$$ 
+		Так как $y_0 = 0$, имеем $\lambda_1x_0^2+c = 0 \Rightarrow |x_0| = \sqrt{\frac{-c}{\lambda_1}}$. Отсюда для достаточно малого $\epsilon$, имеющего противоположный знаку $x_0$ знак, будет выполнено $D \geqslant 0$, т.е. искомый $\epsilon_1$ существует и в этом случае (но только для одной полуокрестности).
+		Осталось заметить, что при $\epsilon \rightarrow 0$ $$D = -4\lambda_2(\lambda_1(x_0 + \epsilon)^2 + c) \rightarrow 0 \Rightarrow \delta(\epsilon) = \frac{\pm\sqrt{D}}{2\lambda_2} \rightarrow 0$$
+	\end{proof}
+	\begin{subtheorem}
+		Пусть $L$ - гипербола, $(x_0, y_0) \in L$. Тогда на $L$ существуют точки, сколь угодно близкие к $(x_0, y_0)$. Более того, выполнено хотя бы одно из следующих условий:
+		\begin{enumerate}
+			\item $\forall \epsilon_0 > 0 \ \exists \epsilon_1: 0 < \epsilon_1 < \epsilon_0$ такой, что $\forall \epsilon \in (0, \epsilon_1) \ \exists \delta(\epsilon): (x_0 + \epsilon, y_0 + \delta(\epsilon)) \in L$, причём $\delta(\epsilon) \rightarrow 0$ при $\epsilon \rightarrow 0$;
+			\item $\forall \epsilon_0 < 0 \ \exists \epsilon_1: \epsilon_0 < \epsilon_1 < 0$ такой, что $\forall \epsilon \in (\epsilon_1, 0) \ \exists \delta(\epsilon): (x_0 + \epsilon, y_0 + \delta(\epsilon)) \in L$, причём $\delta(\epsilon) \rightarrow 0$ при $\epsilon \rightarrow 0$;
+		\end{enumerate} 
+	\end{subtheorem}
+	\begin{proof}
+		Абсолютно аналогично доказательству для эллипса с изменённым знаком $\lambda_2$.
+		Этот знак повлияет только на знак неравенства в случае $y_0 = 0$, но одна и полуокрестностей по-прежнему будет подходить.
+	\end{proof}
 	
-	А ещё отдельным файлом публикую записи по проективке, за которые огромное спасибо Егору Цыбулину)
-	Сам я их пока не отсмотрел, но правки мне можно присылать, пока я пишу это дело)
-
-
+	Пусть $L$ - эллипс или гипербола, $l_0: \begin{cases}
+	x = x_0 + \alpha t\\
+	y = y_0 + \beta t
+	\end{cases}$ - касательная в точке $(x_0, y_0)\in L$. В канонической системе координат известен её направляющий вектор: $\begin{pmatrix} \alpha \\ \beta \end{pmatrix} = \begin{pmatrix} -\lambda_2y_0 \\ \lambda_2x_0 \end{pmatrix}$. Возьмём произвольную точку $(x_1, y_1)\in L$, отличную от $(x_0, y_0)$, и рассмотрим прямую, параллельную $l_0$, проходящую через $(x_1, y_1): l_1: \begin{cases}
+	x = x_1 + \alpha t\\
+	y = y_1 + \beta t
+	\end{cases}$. Найдём точки пересечения $l_1$ и $L$:
+	$$\lambda_1(x_1+\alpha t)^2+\lambda_2(y_1+\beta t)^2+c = 0 \Rightarrow$$ $$(\lambda_1\alpha^2 + \lambda_2\beta^2)t^2 + 2(\lambda_1\alpha x_1 + \lambda_2\beta y_1)t + \lambda_1x_1^2 + \lambda_2y_1^2 + c = 0$$
+	Заметим, что коэффициент перед $t^2$ не равен 0, т.к. направление касательной неасимптотическое, а свободный член $= 0$, т.к. $(x_0, y_0)\in L$. Тогда корень относительно $t$ единственный $\Leftrightarrow \lambda_1\alpha x_1 + \lambda_2\beta y_1 = 0$.\\
+	Если для точки $(x_1, y_1 \in L)$ это условие не выполнено, то $l_1$ пересекает $L$ в двух точках.
+	Предположим, что для точки $(x_1, y_1)$ условие выполнено. Тогда прямая $\lambda_1\alpha x + \lambda_2\beta y = 0$ уже имеет две точки пересечения с $L$ - $(x_0, y_0)$ и $(x_1, y_1)$. Тогда для любой точки $(x_2, y_2) \in L, \ |x_0 - x_2| < |x_0 - x_1|$ это же условие выполняться не может, т.к. прямая не может иметь более двух общих точек с $L$. Сформулируем доказанное утверждение:
+	\begin{subtheorem}
+		ПУсть $L$ - эллипс или гипербола, $(x_0, y_0)\in L$. Тогда $\exists \epsilon > 0$ такой, что для любой точки $(x_1, y_1) \in L: d((x_0, y_0), (x_1, y_1)) < \epsilon$ прямая, проходящая через $(x_1, y_1)$ и параллельная касательной в точке $(x_0, y_0)$, пересекает $L$ в двух точках.
+	\end{subtheorem} 
+	Докажем аналогичные утвержения для параболы.
+	\begin{subtheorem}
+		Пусть $L$ - парабола, $(x_0, y_0) \in L$. Тогда на $L$ существуют точки, сколь угодно близкие к $(x_0, y_0)$. Более того, выполнено условие:\\
+		$\forall \epsilon_0 > 0 \ \exists \epsilon_1: 0 < \epsilon_1 < \epsilon_0$ такой, что $\forall \epsilon \in (0, \epsilon_1) \ \exists \delta(\epsilon): (x_0 + \epsilon, y_0 + \delta(\epsilon)) \in L$, причём $\delta(\epsilon) \rightarrow 0$ при $\epsilon \rightarrow 0$, а в случае $y_0 \neq 0$ дополнительно $\exists \gamma(\epsilon): (x_0 - \epsilon, y_0 + \gamma(\epsilon)) \in L$ и $\gamma(\epsilon) \rightarrow 0$ при $\epsilon \rightarrow 0$.
+	\end{subtheorem}
+	\begin{proof}
+		Рассмотрим параболу в канонической с.к., т.е. её уравнение имеет простейший вид $\lambda_2y^2+2cx = 0$. Пусть для определённости $\lambda_2 = 1, c < 0$ (иначе поделим на $\lambda_2$). Запишем условие на $\delta(\epsilon)$, что точка $(x_0 + \epsilon, y_0 + \delta(\epsilon))$ принадлежит $L$: $$(y_0 + \delta(\epsilon))^2+2c(x_0 + \epsilon) = 0\Rightarrow$$ $$\delta(\epsilon)^2 + 2y_0\cdot\delta(\epsilon) + 2c(x_0 + \epsilon) + y_0^2 = 0$$
+		Получили квадратное уравнение относительно $\delta(\epsilon) \ (\lambda_2 \neq 0)$. Обозначим свободный член за $A$. Заметим, что $A \rightarrow 0$ при $\epsilon \rightarrow 0$, так как $y_0^2+2cx = 0$. Запишем дискриминант полученного квадратного уравнения: $$D = 4y_0^2 - 4A \ \Rightarrow D \rightarrow 4y_0^2, \ \ \epsilon \rightarrow 0$$
+		Если $y_0 \neq 0$, то для достаточно малых $\epsilon$ (по модулю, поэтому будут существовать и $\delta(\epsilon)$, и $\gamma(\epsilon)$) выполнено $D \geqslant 0$, поэтому корни $\delta(\epsilon)$ существуют и при $\epsilon \rightarrow 0$ один из них стремится к 0, т.к. $A \rightarrow 0$\\
+		Если же $y_0 = 0$, то $x_0 = 0$ из принадлежности параболе, и уравнение имеет вид $$\delta(\epsilon)^2 + 2c\epsilon = 0 \Rightarrow \delta(\epsilon) = \pm\sqrt{-2c\epsilon} \Rightarrow \delta(\epsilon) \rightarrow 0 \text{ при } \epsilon \rightarrow 0$$
+	\end{proof}
+	\begin{subtheorem}
+		ПУсть $L$ - парабола, $(x_0, y_0)\in L$. Тогда $\exists \epsilon > 0$ такой, что для любой точки $(x_1, y_1) \in L: d((x_0, y_0), (x_1, y_1)) < \epsilon$ прямая, проходящая через $(x_1, y_1)$ и параллельная касательной в точке $(x_0, y_0)$, пересекает $L$ в двух точках.
+	\end{subtheorem} 
+	\begin{proof}
+		Рассуждения абсолютно аналогичны случаю эллипса и гиперболы.
+	\end{proof}
+	\begin{theorem}
+		Пусть $L$ - эллипс, гипербола или парабола, $l$ - диаметр, сопряжённый неасимптотическому направлению $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ и $(x_0, y_0) \in L \cap l$, причём $(x_0, y_0)$ - не центр. Тогда касательная к $L$ в точке $(x_0, y_0)$ имеет направление $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ 
+	\end{theorem}
+	\begin{proof}
+		Запишем условие $(x_0, y_0) \in l$ - точка принадлежит диаметру, сопряжённого $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$: $$\alpha(a_{11}x_0 + a_{12}y_0 + a_1) + \beta(a_{12}x_0 + a_{22}y_0 + a_2) = 0 \ \ (*)$$
+		Уравнение касательной в точке $(x_0, y_0)$: $$(a_{11}x_0 + a_{12}y_0 + a_1)(x-x_0) + (a_{12}x_0 + a_{22}y_0 + a_2)(y-y_0) + a_1x_0 + a_2y_0 + a_0,$$ её направляющий вектор - $\begin{pmatrix} -a_{12}x_0 - a_{22}y_0 - a_2 \\ a_{11}x_0 + a_{12}y_0 + a_1 \end{pmatrix}$.\\
+		Если рассматривать $(*)$ как уравнение относительно $\alpha$ и $\beta$, то оно задаёт их с точностью до пропорциональности (коэффициенты не равны нулю одновременно, т.к. $(x_0, y_0)$ - не центр). Очевидно, что направляющий вектор касательной удовлетворяет этому уравнению, а значит её направление совпадает с направлением $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$.
+	\end{proof}
+	\begin{theorem}
+		Пусть $L$ - линия второго порядка, $l$ - прямая неасимптотического направления, $L\cap l = {(x_0, y_0)}$ и $(x_0, y_0)$ - не центр $L$. Тогда $l$ - касательная к $L$ в точке $(x_0, y_0)$.
+	\end{theorem}
+	\begin{proof}
+		Пусть $l: \begin{cases}x = x_0 + \alpha t\\y = y_0 + \beta t\end{cases}$. Подставим в уравнение линии: \begin{align*}
+			(a_{11}\alpha^2 + 2a_{12}\alpha\beta + a_{22}\beta^2)t^2 + 2(\alpha(a_{11}x_0 + a_{12}y_0 + a_1) + \beta(a_{12}x_0 + a_{22}y_0 + a_2))t +\\+ F(x_0, y_0) = 0.
+		\end{align*}
+		Коэффициент перед $t^2$ не равен нулю, т.к. $(x_0, y_0)$ - не центр, а свободный член равен нулю, т.к. $(x_0, y_0)\in L$. Тогда точка пересечения единственна только в случае, когда коэффициент перед $t$ нулевой, а из этого $$\begin{pmatrix} \alpha & \beta \end{pmatrix}\begin{pmatrix} a_{11}x_0 + a_{12}y_0 + a_1 \\ a_{12}x_0 + a_{22}y_0 + a_2 \end{pmatrix} = 0 \Rightarrow \begin{pmatrix} \alpha \\ \beta \end{pmatrix} \parallel \begin{pmatrix} -a_{12}x_0 - a_{22}y_0 - a_2 \\ a_{11}x_0 + a_{12}y_0 + a_1 \end{pmatrix}$$
+		Тогда $l$ имеет с касательной к $L$ в $(x_0, y_0)$ общую точку и у них совпадают направления, а значит, эти прямые совпадают, т.е. $l$ - касательная к $L$ в точке $(x_0, y_0)$.
+	\end{proof}
 	\bfseries Мораль в том, что пупупу...\mdseries
 \end{document}
