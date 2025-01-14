@@ -1661,5 +1661,72 @@
 	Если $\lambda_1 \neq \lambda_2$, то либо $\alpha = 0$, либо $\beta = 0$, а значит векторы $\begin{pmatrix} \alpha & \beta \end{pmatrix}$ и $\begin{pmatrix} -\beta \\ \alpha \end{pmatrix}$ параллельны базисным векторам канонической с.к.\\
 	Если $\lambda_1 = \lambda_2$, то $\alpha$ и $\beta$ могут быть любыми. Однако в этом случае $\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix} = \begin{pmatrix} \lambda&0 \\ 0&\lambda \end{pmatrix}$, и умножение вектора на эту матрицу слева равносильно умножению этого вектора на $\lambda$. Тогда любой вектор является собственным для матрицы $\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}$, а значит можем перейти к новой канонической с.к., где базисные векторы сонаправлены с $\begin{pmatrix} \alpha & \beta \end{pmatrix}$ и $\begin{pmatrix} -\beta \\ \alpha \end{pmatrix}$.
 	\end{proof}
+	\section{Поляры и полюсы}
+	\begin{definition}
+		Говорят, что точки $(x_1, y_1)$ и $(x_2, y_2)$ сопряжены относительно линии второго порядка, заданной уравнением $F(x, y) = \begin{pmatrix} x&y&1 \end{pmatrix}A \begin{pmatrix} x  \\ y \\ 1 \end{pmatrix}$, если $\begin{pmatrix} x_1&y_1&1 \end{pmatrix}A \begin{pmatrix} x_2  \\ y_2 \\ 1 \end{pmatrix} = 0$.
+	\end{definition}
+	\begin{remark}
+		В случае данного определения нельзя использовать направления - если равенство выполнено для $\begin{pmatrix} \alpha_1 \\ \beta_1 \end{pmatrix}$ и $\begin{pmatrix} \alpha_2 \\ \beta_2 \end{pmatrix}$, оно не обязано выполняться для $\begin{pmatrix} \mu\alpha_1 \\ \mu\beta_1 \end{pmatrix}$ и $\begin{pmatrix} \nu\alpha_2 \\ \nu\beta_2 \end{pmatrix}$.
+	\end{remark}
+	\begin{subtheorem}
+		Точки $(x_1, y_1)$ и $(x_2, y_2)$ сопряжены относительно линии второго порядка $L \Leftrightarrow$ точки $(x_2, y_2)$ и $(x_1, y_1)$ сопряжены относительно $L$.
+	\end{subtheorem}
+	\begin{proof}
+		Достаточно непосредственно проверить, что выполнено равенство $\begin{pmatrix} x_1&y_1&1 \end{pmatrix}A \begin{pmatrix} x_2  \\ y_2 \\ 1 \end{pmatrix} = \begin{pmatrix} x_2&y_2&1 \end{pmatrix}A \begin{pmatrix} x_1  \\ y_1 \\ 1 \end{pmatrix}$
+	\end{proof}
+	Зафиксируем точку $(x_0, y_0)$ и рассмотрим множество всех сопряжённых ей относительно $L$ точек $(x, y)$: $$\begin{pmatrix} x_0&y_0&1 \end{pmatrix}A \begin{pmatrix} x  \\ y \\ 1 \end{pmatrix} = 0 \Rightarrow$$ $$(a_{11}x_0+a_{12}y_0+a_1)x + (a_{12}x_0+a_{22}y_0+a_2)y + ... = 0$$
+	Очевидно, что это уравнение задаёт прямую $\Leftrightarrow (x_0, y_0)$ - не центр $L$.
+	\begin{definition}
+		Пусть $(x_0, y_0)$ - любая точка плоскости, не являющаяся центром линии второго порядка $L$, заданной уравнением $F(x, y) = \begin{pmatrix} x&y&1 \end{pmatrix}A \begin{pmatrix} x  \\ y \\ 1 \end{pmatrix}$. \\Тогда прямая $l$, заданная уравнением $\begin{pmatrix} x_0&y_0&1 \end{pmatrix}A \begin{pmatrix} x  \\ y \\ 1 \end{pmatrix} = 0$, называется полярой точки $(x_0, y_0)$, а точка $(x_0, y_0)$ называется полюсом прямой $l$.
+	\end{definition}
+	\begin{subtheorem}
+		Поляра содержит свой полюс $\Leftrightarrow$ полюс принадлежит $L$ и поляра является касательной к $L$ в полюсе. 
+	\end{subtheorem}
+	\begin{proof}
+		$\\\Leftarrow: \ \ $ Следует из уравнений касательной и поляры (совпадают для точки на $L$).
+		$\\\Rightarrow: \ \ $ Поляра содержит свой полюс $\Rightarrow \begin{pmatrix} x_0&y_0&1 \end{pmatrix}A \begin{pmatrix} x_0 \\ y_0 \\ 1 \end{pmatrix} = 0$ из определения поляры $\Rightarrow (x_0, y_0) \in L$, а для точки на $L$ уравнения поляры и касательной совпадают.
+	\end{proof}
+	\begin{subtheorem}
+		Пусть $(x_1, y_1)$ и $(x_2, y_2)$ - точки, не являющиеся центром линии второго порядка $L$. и $l_1, l_2$ - их поляры. Тогда $(x_1, y_1) \in l_2 \Leftrightarrow (x_2, y_2) \in l_1$.
+	\end{subtheorem}
+	\begin{proof}
+		Следует из взаимности сопряжённоти точек.
+	\end{proof}
+	\begin{consequense}
+		Если $(x_0, y_0)$ - не центр линии $L$, $l_0$ - её поляра и $l_0$ пересекает $L$ в точке $(x_1, y_1)$, не являющейся центром, то $(x_0, y_0)$ принадлежит касательной к $L$ в точке $(x_1, y_1)$.
+	\end{consequense}
+	\begin{theorem}
+		Данная прямая является или не является полярой данной точки относительно $L$ независимо от системы координат.
+	\end{theorem}
+	\begin{proof}
+		Пусть точки $(x_1, y_1)$ и $(x_2, y_2)$ сопряжены, $(x_1', y_1')$ и $(x_2', y_2')$ - их новые координаты. Тогда $\begin{pmatrix} x_1  \\ y_1 \\ 1 \end{pmatrix} = D \begin{pmatrix} x_1'  \\ y_1' \\ 1 \end{pmatrix}, \begin{pmatrix} x_2  \\ y_2 \\ 1 \end{pmatrix} = D \begin{pmatrix} x_2'  \\ y_2' \\ 1 \end{pmatrix}$, где $A' = D^TAD$ для перехода $L$ в новую с.к. Тогда:\begin{align*}
+		\begin{pmatrix} x_1'&y_1'&1 \end{pmatrix}A' \begin{pmatrix} x_2'  \\ y_2' \\ 1 \end{pmatrix} = \begin{pmatrix} x_1'&y_1'&1 \end{pmatrix}D^TAD\begin{pmatrix} x_2'  \\ y_2' \\ 1 \end{pmatrix} = \begin{pmatrix} x_1&y_1&1 \end{pmatrix}A \begin{pmatrix} x_2  \\ y_2 \\ 1 \end{pmatrix} = 0
+		\end{align*}
+		Отсюда видно, что сопряжение точек не зависит от системы координат, а значит и поляра точки не зависит от системы координат. 
+	\end{proof}
+	\begin{subtheorem}
+		Пусть $L$ - линия второго порядка, $(x_0, y_0) \notin L, (x_0, y_0)$ - не центр $L$. Тогда поляра $l_0$ точки $(x_0, y_0)$ имеет асимптотическое направление $\Rightarrow$ либо $L$ - гипербола, $(x_0, y_0)$ принадлежит одной из её асимптот и поляра имеет направление этой асимптоты, либо $L$ - пара параллельных или совпадающих прямых, а поляра им параллельна.
+	\end{subtheorem}
+	\begin{proof}
+		В канонической системе координат $L$ имеет уравнение одного из простейших видов:
+		\begin{enumerate}
+			\item $\lambda_1x^2+\lambda_2y^2 + c = 0\\$
+			Уравнение поляры: $\lambda_1x_0x+\lambda_2y_0y + c = 0$.\\ Её направляющий вектор - $\begin{pmatrix} -\lambda_2y_0 \\ \lambda_1x_0 \end{pmatrix}$.\\
+			Запишем условие асимтотичности: $$\begin{pmatrix} -\lambda_2y_0 & \lambda_1x_0 \end{pmatrix}\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}\begin{pmatrix} -\lambda_2y_0 \\ \lambda_1x_0 \end{pmatrix} = 0 \Rightarrow \lambda_1\lambda_2(\lambda_1x_0^2 + \lambda_2y_0^2) = 0$$
+			Если $\lambda_1 = 0$, то $L$ - пара параллельных, мнимых параллельных или совпадающих прямых, а вэтом случае поляра параллельна им, т.к. имеет асимптотическое направление.\\
+			Если же $\lambda_1 \neq 0$, то $\lambda_1x_0^2 + \lambda_2y_0^2 = 0$. Тогда $c \neq 0$ из условия $(x_0, y_0) \notin L$, а также $\lambda_1$ и $\lambda_2$ разных знаков, т.к. иначе $\lambda_1x_0^2 + \lambda_2y_0^2 \neq 0$.
+			Отсюда $L$ - гипербола, $\lambda_1x_0^2 + \lambda_2y_0^2 = 0$ - условие того, что $(x_0, y_0)$ лежит на одной из её асимптот, а поляра имеет направление именно этой асимптоты (мы его уже считали).
+			\item $\lambda_2y^2 + 2cx = 0, \ c \neq 0$\\
+			Уравнение поляры: $cx+\lambda_2y_0y = 0$.\\
+			Её направляющий вектор - $\begin{pmatrix} -\lambda_2y_0 \\ 0 \end{pmatrix}$.\\
+			Условие асимтотичности: $$\begin{pmatrix} -\lambda_2y_0 & 0 \end{pmatrix}\begin{pmatrix} \lambda_1&0 \\ 0&\lambda_2 \end{pmatrix}\begin{pmatrix} -\lambda_2y_0 \\ 0 \end{pmatrix} = 0 \Rightarrow \lambda_2c^2 = 0$$ не может выполняться.
+		\end{enumerate}
+	\end{proof}
+	\begin{consequense}
+		Если $(x_0, y_0)$ - не центр $L$, причём $L$ - не пара пересекающихся или совпадающих прямых, то либо поляра $l_0$ точки $(x_0, y_0)$ не пересекает $L$, либо пересекает $L$ ровно в двух точках $(x_1, y_1)$ и $(x_2, y_2)$, причём в этих точках существуют касательные, пересекающиеся в точке $(x_0, y_0)$, либо $L$ - гипербола, $(x_0, y_0)$ принадлежит одной из её асимптот, поляра параллельна этой асимптоте и пересекает $L$ в одной точке $(x_1, y_1)$, причём прямая через $(x_0, y_0)$ и $(x_1, y_1)$ - касательная в точке $(x_1, y_1)$.
+	\end{consequense}
+	
+	А теперь у меня вынужденный перерыв)
+	
 	\bfseries Мораль в том, что пупупу...\mdseries
 \end{document}
