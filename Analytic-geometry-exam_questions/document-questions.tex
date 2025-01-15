@@ -677,7 +677,7 @@
 	\begin{formula}(Двумерный случай ортогональной матрицы)\\
 		$C = \begin{pmatrix} a&b\\c&d \end{pmatrix}$ ортогональна $\Rightarrow a^2 + c^2 = 1 \Rightarrow \exists \phi: a = \cos\phi, c = \sin\phi$.\\
 		Из теоремы $a^2 + b^2 = 1, \ c^2 + d^2 = 1 \Rightarrow b = \pm\sin\phi, \ d = \pm\cos\phi$.\\
-		Из ортогональности столбцов следует, что $ab + cd = 0$, поэтому остаются следующие случаи: \begin{boxedalign*}C = \begin{pmatrix} \cos\phi&-\sin\phi\\\sin\phi&\cos\phi\end{pmatrix}; \ \ C = \begin{pmatrix} \cos\phi&\sin\phi\\\sin\phi&\-cos\phi\end{pmatrix}\end{boxedalign*}
+		Из ортогональности столбцов следует, что $ab + cd = 0$, поэтому остаются следующие случаи: \begin{boxedalign*}C = \begin{pmatrix} \cos\phi&-\sin\phi\\\sin\phi&\cos\phi\end{pmatrix}; \ \ C = \begin{pmatrix} \cos\phi&\sin\phi\\\sin\phi&\ -cos\phi\end{pmatrix}\end{boxedalign*}
 		т.е. для любой ортогональной $C$ найдётся $\phi$ такой, что $C$ имеет один из видов выше. Несложно также убедиться, что любая матрица такого вида ортогональна: первая производит поворот на угол $\phi$, а вторая - поворот с отражением.
 	\end{formula}
 	\section{Ориентация векторных пространств}
@@ -1643,7 +1643,7 @@
 	Отсюда видно, что вектор $\begin{pmatrix} \alpha \\\beta  \end{pmatrix}$ является собственным вектором $A_1$ с собственным значением 0 $\Rightarrow \lambda_1 = 0 \Rightarrow$ нормированный вектор с направлением $\begin{pmatrix} \alpha \\\beta  \end{pmatrix}$ является первым базисным вектором канонической с.к. (очевидно, что он всегда определён однозначно)
 	\subsection{Главные направления}
 	\begin{definition}
-		Направление $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ называется особым для данной линии второго порядка, если относительно этой линии оно сопряжено ортогональному ему направлению. 
+		Направление $\begin{pmatrix} \alpha \\ \beta \end{pmatrix}$ называется главным для данной линии второго порядка, если относительно этой линии оно сопряжено ортогональному ему направлению. 
 	\end{definition}
 	\begin{definition}
 		Диаметр с главным направлением называется главным диаметром.
@@ -2318,9 +2318,41 @@ $\frac{u^2}{p} - \frac{- \frac{D}{B} - u \cdot \frac{A}{B}}{q} = 2v$.
 
 \section{Аффинные преобразования}
 \begin{definition}
-	Пусть $A$ - конечномерное аффинное пространство. Отображение $f: A \rightarrow A$ называется аффинным преобразованием пространства $A$, если существуют два репера $\bar{e}_{1},...,\bar{e}_{n}$ и $\bar{e}_{1}',...,\bar{e}_{n}'$ такие, что образ $f(\bar{v})$ любого вектора $\bar{v} \in V$ имеет во втором базисе те же координаты, что и $\bar{v}$ в первом базисе. Базисы $\bar{e}_{1},...,\bar{e}_{n}$ и $\bar{e}_{1}',...,\bar{e}_{n}'$ называются ассоциированными с $f$.
+	Пусть $A$ - конечномерное аффинное пространство. Отображение $f: A \rightarrow A$ называется аффинным преобразованием пространства $A$, если существуют два репера $O\bar{e}_{1},...,\bar{e}_{n}$ и $O'\bar{e}_{1}',...,\bar{e}_{n}'$ такие, что образ $f(M)$ любой точки $M \in A$ имеет во втором репере те же координаты, что и $M$ в первом репере. Реперы $\bar{e}_{1},...,\bar{e}_{n}$ и $\bar{e}_{1}',...,\bar{e}_{n}'$ (и соответствующие системы координат) называются ассоциированными с $f$.
 \end{definition}
-
+\begin{remark}
+	Это, очевидно, биекция.
+\end{remark}
+\begin{definition}
+	Пусть $A$ - конечномерное аффинное пространство, $V$ - ассоциированное с ним векторное пространство и $f: A\rightarrow A$ - аффинное преобразование. Отображение $df: V\rightarrow V$, определённое правилом: $df(\bar{v}) = \overrightarrow{f(O)f(O+\bar{v})}$, называется дифференциалом аффинного преобразования $f$.
+\end{definition}
+\begin{subtheorem}
+	$df$ - линейное преобразование пространства $V$. 
+\end{subtheorem}
+\begin{proof}
+	Пусть $X = O + \bar{v}$. Тогда $\bar{v}$ = $\overrightarrow{OX}$ и $df(\bar{v}) = \overrightarrow{f(O)f(X)}$. Координаты точек $X$ и $X'$ в соответствующих базисах совпадают, точек $O$ и $O'$ - совпадают и равны $(0,...,0)$. Тогда координаты вектора $\bar{v}$ в базисе $\bar{e}_{1},...,\bar{e}_{n}$ совпадают с координатами точки $X$ в репере $O\bar{e}_{1},...,\bar{e}_{n}$, аналогично с координатами $df(\bar{v})$ в базисе $\bar{e}_{1}',...,\bar{e}_{n}'$ и $X'$ в репере $O'\bar{e}_{1}',...,\bar{e}_{n}'$. Отсюда координаты векторов $\bar{v}$ и $df(\bar{v})$ в соответствующих базисах совпадают, то есть $df$ - линейное преобразование, и ассоциированные с ним базисы - $\bar{e}_{1},...,\bar{e}_{n}$ и $\bar{e}_{1}',...,\bar{e}_{n}'$
+\end{proof}
+\begin{remark}
+	$\forall X \in A$ выполнено $f(X) = f(O) + df(\overrightarrow{OX})$ (из определения дифференциала преобразования).
+\end{remark}
+\begin{subtheorem}
+	$\forall X, Y \in A$ выполнено $f(Y) = f(X) + df(\overrightarrow{XY})$
+\end{subtheorem}
+\begin{proof}
+	По определению $df$ имеем $f(X) = f(O) + df(\overrightarrow{OX})$, $f(Y) = f(O) + df(\overrightarrow{OY})$. Также $\overrightarrow{XY} = \overrightarrow{OY} - \overrightarrow{OX}$, и из линейности $df$ следует $df(\overrightarrow{XY}) = df(\overrightarrow{OY}) - df(\overrightarrow{OX})$. Значит, 
+	$$f(X) + df(\overrightarrow{XY}) = f(X) + df(\overrightarrow{OY}) - df(\overrightarrow{OX}) = f(O) + df(\overrightarrow{OY}) = f(y).$$
+\end{proof}
+\begin{consequense}
+	Дифференциал аффинного преобразования не зависит от выбора точки $O$, т.е. однозначно определяется преобразованием $f$.
+\end{consequense}
+\begin{theorem} Свойства аффинных преобразований:
+	\begin{enumerate}
+		\item Прямая переходит в прямую (а три точки не на одной прямой - в три точки не на одной прямой);
+		\item Параллельные прямые переходят в параллельные прямые;
+		\item Сохраняется деление отрезка точкой в данном отношении;
+		\item Образом линии второго порядка на пло...
+	\end{enumerate}
+\end{theorem}
 \section{Движения точечно - евклидовых пространств}
 заработаешься тут\\
 страница 96
